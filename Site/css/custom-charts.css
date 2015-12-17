@@ -1,0 +1,183 @@
+.card-chart .card-header {
+}
+
+.percent-chart {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+
+    position: relative;
+    /*margin-bottom: 15px;*/
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.percent-chart .pie-title {
+    font-size: 14px;
+    bottom: -18px;
+}
+
+.percent-chart .checkbox .input-helper:before {
+    border: 3px solid #009688 !important;
+}
+
+.percent-chart .checkbox {
+    float: left;
+    z-index: 9999;
+    position: absolute;
+    right: -26px;
+    top: 0px;
+
+}
+
+.percent-chart .actions{
+    position: absolute;
+    right: 2px;
+    z-index: 2;
+    top: 4px;
+}
+
+/* horizontal stats panel */
+
+.stats_panel{
+	
+}
+
+.stats_panel h4{
+	font-size: 15px;font-weight: 400;color:#009688;
+	    margin-left: 5px;
+}
+
+.stats_panel .col-md-2 {
+	width:20%;
+}
+
+.stats_panel .col-md-3 , .stats_panel .col-md-2 {
+	padding-left:3px;
+	padding-right:3px;
+	height:70px;
+}
+
+.stats_panel_item{
+	    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+		position: relative;
+	    /*margin-bottom: 10px;*/
+		background-color: #00bcd4 !important;
+		height:70px;
+}
+
+.stats_panel_item .chart {
+    padding: 15px;
+    float: left;
+}
+
+.stats_panel_item .clearfix{
+	position: relative;
+    z-index: 1;
+}
+
+.stats_panel_item .count {
+    overflow: hidden;
+    color: rgba(255, 255, 255, 0.9);
+    padding: 7px 12px;
+}
+
+.stats_panel_item .count > h2, .stats_panel_item .count > medium {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+	display:inline-block;
+}
+
+.stats_panel_item .count > medium {
+    margin-bottom: 2px;
+    display: block;
+	font-size: 16px;
+	font-weight: 500;
+}
+
+.stats_panel_item .count > small{
+    
+	font-size: 13px;
+    position: relative;
+    top: -3px;
+	right:-4px;
+}
+
+.stats_panel_item  .count > h2 {
+    margin: 0;
+    line-height: 100%;
+    font-size: 22px;
+    font-weight: 300;
+    color: #fff;
+}
+
+
+/****** Attendance Block */
+
+.att_block{}
+
+.att_block .card-header{
+	padding: 13px 26px !important;
+}
+
+.att_block .card-header > .actions{
+	right: 3px;
+    top: 5px;
+}
+
+.att_block hr{
+	margin-top:10px;
+	margin-bottom:0px;
+}
+
+.att_block .card-body{
+	padding: 11px 26px !important;
+	padding-top:0px !important;
+}
+
+.att_block .title{
+	font-size:15px;
+	line-height: 30px;
+}
+
+.att_block .percent-chart{
+	padding-top:8px;
+	padding-bottom:35px;
+}
+
+.att_block .percent-chart > .easy-pie{
+    padding: 0 5px 24px;
+}
+
+.dept_view .att_block .percent-chart .percent{
+    font-size: 21px;
+    margin-top: 31px;
+}
+
+.dept_view .att_block .percent-chart{
+    padding-bottom:25px;
+}
+
+.period_view .percent-chart{
+        padding: 5px 15px;
+        padding-bottom: 13px;
+        cursor: pointer;
+}
+
+.period_view .percent-chart .easy-pie{
+    padding: 0px 11px 20px;
+}
+
+
+.period_view .percent-chart .pie-title{
+        bottom: 1px;
+}
+
+
+.period_view .percent-chart .percent{
+    font-size: 21px;
+    margin-top: 31px;
+}
+
+.period_view .pressed_img{
+    width:35px;height:35px;position: absolute; right: -8px; top: -15px;
+}

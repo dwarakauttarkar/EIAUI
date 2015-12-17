@@ -1,0 +1,198 @@
+.angularTablePaginationBlock{
+    text-align: center;
+}
+
+.angularTablePagination {
+    display: inline-block ;
+    padding-left: 0 ;
+    margin: 20px 0 ;
+    border-radius: 4px ;
+}
+
+.angularTablePagination>li {
+    display: inline ;
+}
+
+.angularTablePagination>li:first-child>a, .angularTablePagination>li:first-child>span {
+    margin-left: 0 ;
+    border-bottom-left-radius: 4px ;
+    border-top-left-radius: 4px ;
+}
+
+.angularTablePagination>.disabled>span, .angularTablePagination>.disabled>span:hover, .angularTablePagination>.disabled>span:focus, .angularTablePagination>.disabled>a, .angularTablePagination>.disabled>a:hover, .angularTablePagination>.disabled>a:focus {
+    color: #999 ;
+    background-color: #fff ;
+    border-color: #ddd ;
+    cursor: not-allowed ;
+}
+
+
+.angularTablePagination>li>a, .angularTablePagination>li>span {
+    position: relative ;
+    float: left ;
+    padding: 6px 12px ;
+    line-height: 1.42857143 ;
+    text-decoration: none ;
+    color: #428bca ;
+    background-color: #fff ;
+    border: 1px solid #ddd ;
+    margin-left: -1px ;
+}
+
+
+
+.angularTablePagination>.active>a, .angularTablePagination>.active>span, .angularTablePagination>.active>a:hover, .angularTablePagination>.active>span:hover, .angularTablePagination>.active>a:focus, .angularTablePagination>.active>span:focus {
+    z-index: 2;
+    color: #fff;
+    background-color: #428bca;
+    border-color: #428bca;
+    cursor: default;
+}
+
+
+
+/* section navigator */
+
+.sn-container {
+    bottom: 50%;
+    position: fixed;
+    right: 25px;
+    width: 25px;
+    margin-bottom: -100px;
+    z-index: 9999;
+}
+
+
+.sn-container ul{
+    list-style: none;
+}
+
+
+.sn-container ul > li{
+    margin-bottom: 10px;
+}
+
+
+
+/* radio colors */
+
+.radiocolor1 .input-helper:after {
+    background: #3F51B5;
+}
+
+.radiocolor2 .input-helper:after {
+    background: #8BC34A;
+}
+
+
+
+/* Hierarchy Tree View **********/
+
+
+
+                .tree ul {
+                    padding-top: 20px;
+                    position: relative;
+
+                    transition: all 0.5s;
+                    -webkit-transition: all 0.5s;
+                    -moz-transition: all 0.5s;
+                }
+
+                .tree li {
+                    float: left;
+                    text-align: center;
+                    list-style-type: none;
+                    position: relative;
+                    padding: 20px 5px 0 5px;
+
+                    transition: all 0.5s;
+                    -webkit-transition: all 0.5s;
+                    -moz-transition: all 0.5s;
+                }
+
+                /*We will use ::before and ::after to draw the connectors*/
+
+                .tree li::before, .tree li::after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    right: 50%;
+                    border-top: 1px solid #ccc;
+                    width: 50%;
+                    height: 20px;
+                }
+
+                .tree li::after {
+                    right: auto;
+                    left: 50%;
+                    border-left: 1px solid #ccc;
+                }
+
+                /*We need to remove left-right connectors from elements without
+                any siblings*/
+                .tree li:only-child::after, .tree li:only-child::before {
+                    display: none;
+                }
+
+                /*Remove space from the top of single children*/
+                .tree li:only-child {
+                    padding-top: 0;
+                }
+
+                /*Remove left connector from first child and
+                right connector from last child*/
+                .tree li:first-child::before, .tree li:last-child::after {
+                    border: 0 none;
+                }
+
+                /*Adding back the vertical connector to the last nodes*/
+                .tree li:last-child::before {
+                    border-right: 1px solid #ccc;
+                    border-radius: 0 5px 0 0;
+                    -webkit-border-radius: 0 5px 0 0;
+                    -moz-border-radius: 0 5px 0 0;
+                }
+
+                .tree li:first-child::after {
+                    border-radius: 5px 0 0 0;
+                    -webkit-border-radius: 5px 0 0 0;
+                    -moz-border-radius: 5px 0 0 0;
+                }
+
+                /*Time to add downward connectors from parents*/
+                .tree ul ul::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 50%;
+                    border-left: 1px solid #ccc;
+                    width: 0;
+                    height: 20px;
+                }
+
+                .tree li button {
+                    font-size: 14px !important;
+                }
+
+                /*Time for some hover effects*/
+                /*We will apply the hover effect the the lineage of the element also*/
+                .tree button:hover, .tree button:hover + div button {
+                    background-color: rgb(51, 87, 140);
+                    color: white;
+                    font-weight: 600;
+                }
+
+                /*Connector styles on hover*/
+                .tree li a:hover + div ul li::after,
+                .tree li a:hover + div ul li::before,
+                .tree li a:hover + div ul::before,
+                .tree li a:hover + div ul ul::before {
+                    border-color: #94a0b4;
+                }
+
+                .tree .selected, .tree .selected + div button {
+                    background-color: green;
+                    color: white;
+                }
+                

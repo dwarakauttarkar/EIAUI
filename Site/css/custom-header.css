@@ -1,0 +1,15 @@
+#header{
+    height: 50px;
+    background-color: #1C4486;
+    /*background-color: #5A5FCA;*/
+}
+
+#top-search-wrap{
+/*    height: 50px;*/
+    border-bottom: 4px solid white;
+}
+
+
+.header-inner {
+    padding: 7px 0;
+}

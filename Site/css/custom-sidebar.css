@@ -1,0 +1,38 @@
+#sidebar{
+    top: 50px;
+    width:190px;
+}
+
+#sidebar .profile-menu-override > a {
+    display: block;
+    width: auto;
+    background-size: 100%;
+    background-color: aqua;
+}
+
+#sidebar .profile-menu-override > img {
+    float: left;
+    width: 39px;
+    margin: 3px;
+    margin-left: 12px;
+}
+
+#sidebar .profile-menu-override > a.role-info {
+    margin-left: 61px;
+    margin-top: 7px;
+}
+
+#sidebar .profile-menu-override > a.role-info .profile-info  {
+    background: #B9543C;
+}
+
+
+#sidebar .profile-menu-override > a .profile-info {
+    background: #B9543C;
+    padding: 3px 14px;
+    color: #fff;
+    margin-top: 5px;
+    position: relative;
+}
+
+

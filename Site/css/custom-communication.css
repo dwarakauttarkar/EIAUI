@@ -1,0 +1,48 @@
+.broadcast-card{
+
+}
+
+.broadcast-card .listview .lv-item .lv-small{
+    text-overflow: inherit;
+    white-space: pre-wrap;
+}
+.communication-controls {
+    padding: 10px;
+    border-bottom: 1px solid #EEE;
+}
+.communication-controls .form-group {
+    margin-bottom: 11px;
+}
+.no-box-shadow{
+    box-shadow: none !important;
+}
+.btn-delete{
+    color:#F44336;
+    font-size: 20px;
+}
+.btn-delete:hover{
+    color: #E91E63;
+}
+.selected-contacts
+{
+    overflow: auto;
+    min-height: 450px;
+}
+.selected-contacts i {
+font-size: 20px;
+    color: #E91E63;
+}
+.selected-contacts .contacts-list
+{
+    padding: 5px;
+    margin: 5px;
+    border: solid 1px #cccccc;
+}
+.selected-contacts .contacts-list .delete-btn
+{
+    padding: 5px;
+}
+.group-icon-contact{
+    font-size: 25px;
+    color:#0088cc;
+}
