@@ -1,0 +1,57 @@
+<div data-ng-controller="loginCtrl as lctrl" class="login-content" style="    margin-top: auto;overflow:visible">
+<div class="school-logo text-capitalize te"><h1>ABC UNIVESITY</h1></div>
+<!-- Login -->
+<form data-ng-submit="lctrl.signin();">
+<div class="lc-block toggled" id="l-login" data-ng-if="lctrl.login === 1"  style="margin-top: auto;">
+    <div class="input-group m-b-20">
+      <span class="input-group-addon"><i class="md md-person"></i></span>
+      <div class="fg-line">
+        <input type="text" class="form-control" placeholder="Username" data-ng-model="lctrl.userName">
+      </div>
+    </div>
+
+    <div class="input-group m-b-20">
+      <span class="input-group-addon"><i class="md md-accessibility"></i></span>
+      <div class="fg-line">
+        <input type="password" class="form-control" placeholder="Password" data-ng-model="lctrl.password">
+      </div>
+    </div>
+
+    <button class="btn btn-primary btn-block btn-lg waves-effect btn-signup-custom" type="submit">Login</button>
+
+    <div class="block-forgot-signed">
+      <div class="checkbox pull-left">
+        <label>
+          <input type="checkbox" value="" data-ng-model="lctrl.keepLoggedIn">
+          <i class="input-helper"></i>
+          Keep me signed in
+        </label>
+      </div>
+      <div class="pull-right">
+        <a href="javascript:void(0);" data-ng-click="lctrl.login = 0; lctrl.forgot = 1">Forgot Password?</a>
+      </div>
+    </div>
+</div>
+</form>
+
+<!-- Forgot Password -->
+<div class="lc-block" id="l-forget-password" data-ng-if="lctrl.forgot === 1"  style="margin-top: auto;">
+    <p class="text-left">Enter your registered email address to recover password.</p>
+
+    <div class="input-group m-b-20">
+        <span class="input-group-addon"><i class="md md-email"></i></span>
+        <div class="fg-line">
+            <input type="text" class="form-control" placeholder="Email Address">
+        </div>
+    </div>
+
+    <button class="btn btn-primary btn-block btn-lg waves-effect btn-signup-custom" data-ng-click="lctrl.signin();">Submit</button>
+
+    <div class="block-forgot-signed">
+        <div class="text-center">
+            <a href="javascript:void(0);" data-ng-click="lctrl.forgot = 0; lctrl.login = 1"> Back to Login</a>
+        </div>
+    </div>
+</div>
+
+</div>
