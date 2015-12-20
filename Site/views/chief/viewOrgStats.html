@@ -1,0 +1,798 @@
+<header id="header" data-ng-include src="'views/includes/header.html'"
+        data-ng-controller="headerCtrl as hctrl"></header>
+
+<section id="main">
+    <aside id="sidebar" data-ng-include src="'views/chief/includes/sidebar-left.html'"
+           data-ng-class="{ 'toggled': mactrl.sidebarToggle.left === true }"></aside>
+
+    <section id="content" data-ng-controller="chief_ViewOrgStats as ctrl">
+
+        <div class="container">
+            <!--
+
+            bg #1CA276
+
+            -->
+
+            <div class="card dashboard-nav-shadow">
+
+                <div class="dropdown pull-right btn-group" data-animation="flipInX,flipOutX" style="margin:15px" ng-if="ctrl.menu.activeTabIndex == 3">
+
+                    <button type="button" class="btn bgm-teal waves-effect" style="width:auto" disabled="disabled">Select Department :
+                    </button>
+                    <button type="button" class="btn bgm-teal waves-effect" data-toggle="dropdown" style="width:200px;z-index:99999">Computer Science <i class="caret"></i></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="">Computer Science</a></li>
+                        <li><a href="">Electronics</a></li>
+                        <li><a href="">Mechanical</a></li>
+                        <li><a href="">Civil</a></li>
+                        <li><a href="">Electrical</a></li>
+                        <li><a href="">Chemical</a></li>
+                        <li class="divider"></li>
+                        <li><a href="">All Departments</a></li>
+                    </ul>
+                </div>
+
+                <div class="card-header card-padding">
+                    <h2 STYLE="color: #1C4486; font-weight: 600;">SVBIT INSTITUTE OF TECHNOLOGY (SVBIT)</h2>
+
+                    <ol class="breadcrumb">
+                        <li>SVBIT</li>
+
+                        <li ng-if="ctrl.menu.activeTabIndex == 0">BASIC INFO</li>
+                        <li ng-if="ctrl.menu.activeTabIndex == 1">QUICK STATS</li>
+                        <li ng-if="ctrl.menu.activeTabIndex == 2">USERS</li>
+
+
+                        <li ng-if="ctrl.menu.activeTabIndex == 3">ACTIVITY STATS</li>
+
+                        <li class="active" ng-if="ctrl.menu.activeTabIndex == 3 && ctrl.menu[ctrl.menu.activeTabIndex].activeTabIndex == 0">BY STUDENTS</li>
+                        <li class="active" ng-if="ctrl.menu.activeTabIndex == 3 && ctrl.menu[ctrl.menu.activeTabIndex].activeTabIndex == 1">BY FACULTIES</li>
+                        <li class="active"  ng-if="ctrl.menu.activeTabIndex == 3 && ctrl.menu[ctrl.menu.activeTabIndex].activeTabIndex == 2">TODO</li>
+                        <li class="active"  ng-if="ctrl.menu.activeTabIndex == 3 && ctrl.menu[ctrl.menu.activeTabIndex].activeTabIndex == 3">NOTIFICATIONS</li>
+                        <li class="active"  ng-if="ctrl.menu.activeTabIndex == 3 && ctrl.menu[ctrl.menu.activeTabIndex].activeTabIndex == 4">EVENTS</li>
+                        <li class="active"  ng-if="ctrl.menu.activeTabIndex == 3 && ctrl.menu[ctrl.menu.activeTabIndex].activeTabIndex == 5">NOTICE BOARD</li>
+
+                        <li ng-if="ctrl.menu.activeTabIndex == 3">COMPUTER SCIENCE DEPARTMENT</li>
+
+
+
+                    </ol>
+
+
+
+                </div>
+
+
+                <div class="pm-body clearfix">
+                    <ul class="tab-nav tn-justified">
+
+                        <li class="btn-wave"
+                            data-ng-repeat="tab in ctrl.menu.titles"
+                            data-ng-class="{'active':ctrl.menu.activeTabIndex == $index}">
+                            <a data-ng-click="ctrl.menu.activeTabIndex = $index; ctrl.loadView($index);">
+                                {{tab}}
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div ng-if="ctrl.menu[ctrl.menu.activeTabIndex]" class="animated pulse">
+                        <ul class="tab-nav tab-tab-nav tn-justified">
+
+                            <li class="btn-wave"
+                                data-ng-repeat="tab in ctrl.menu[ctrl.menu.activeTabIndex].titles"
+                                data-ng-class="{'active':ctrl.menu[ctrl.menu.activeTabIndex].activeTabIndex == $index}">
+                                <a data-ng-click="ctrl.menu[ctrl.menu.activeTabIndex].activeTabIndex = $index; ctrl.loadView(ctrl.menu.activeTabIndex,$index);">
+                                    {{tab}}
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <!-- basic info-->
+            <div class="card dashboard-card-shadow" ng-if="ctrl.menu.activeTabIndex == 0 ">
+                <div class="card-header">
+                    <h2>Basic Information</h2>
+                </div>
+
+                <div class="card-body card-padding">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div style="font-size:17px;padding:7px"><strong>Established Year</strong></div>
+                            <div style="font-size:17px;padding:7px">1985</div>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <div style="font-size:17px;padding:7px"><strong>Email ID</strong></div>
+                            <div style="font-size:17px;padding:7px">principal@svbit.ac.in</div>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <div style="font-size:17px;padding:7px"><strong>Contact No</strong></div>
+                            <div style="font-size:17px;padding:7px">+91-079-226-458-874</div>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <div style="font-size:17px;padding:7px"><strong>Address</strong></div>
+                            <div style="font-size:17px;padding:7px">Mansa - Gandhinagar Highway,<br/>Gandhinagar -
+                                411057
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- USERS -->
+            <div ng-if="ctrl.menu.activeTabIndex == 2">
+
+                <div class="row">
+
+                    <div class="col-md-2">
+                        <div id="site-visits" class="bgm-teal dashboard-card-shadow" style="height:324px">
+                            <div class="p-20">
+
+                                <small>TOTAL ACTIVE USERS</small>
+                                <h3 class="m-0 f-400">9895</h3>
+
+                                <br>
+
+                                <small>NO OF ADMIN</small>
+                                <h3 class="m-0 f-400">7</h3>
+                                <br/>
+
+                                <small>NO OF H.O.D</small>
+                                <h3 class="m-0 f-400">4</h3>
+
+                                <br>
+
+                                <small>FACULTIES</small>
+                                <h3 class="m-0 f-400">458</h3>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-2">
+                        <div id="site-visits" class="bgm-teal dashboard-card-shadow" style="height:324px">
+                            <div class="p-20">
+
+                                <small>STUDENTS</small>
+                                <h3 class="m-0 f-400">8465</h3>
+
+                                <br>
+
+                                <small>STUDENT/FACULTY RATIO</small>
+                                <h3 class="m-0 f-400">42.40%</h3>
+
+                                <br>
+
+
+                                <small>PARENTS</small>
+                                <h3 class="m-0 f-400">4875</h3>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-8">
+                        <div class="card dashboard-card-shadow">
+                            <div class="card-header">
+                                <h2>Department vise Students</h2>
+
+                                <ul class="actions">
+                                    <li class="dropdown action-show">
+                                        <a href="" data-toggle="dropdown">
+                                            <i class="md md-more-vert"></i>
+                                        </a>
+
+                                        <div class="dropdown-menu pull-right">
+                                            <p class="p-20">
+                                                You can put anything here
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="card-body card-padding-sm">
+                                <div class="flot-chart" id="departmentViseStudents"></div>
+                                <div class="flc-bar"></div>
+
+                                <script>
+
+                                    var data1 = [['Mechanical', 1542], ["Computer Science", 4511], ["Electronics", 2456], ["Civil", 784], ["Instrumentation", 945]];
+
+                                    var barData = new Array();
+
+                                    barData.push({
+                                        data: data1,
+                                        label: 'Students',
+                                        bars: {
+                                            show: true,
+                                            barWidth: 0.4,
+                                            //order : 1,
+                                            lineWidth: 0,
+                                            fillColor: '#009688 ',
+                                            align: "center"
+                                        }
+                                    });
+
+                                    $.plot($("#departmentViseStudents"), barData, {
+                                        grid: {
+                                            borderWidth: 1,
+                                            borderColor: '#eee',
+                                            show: true,
+                                            hoverable: true,
+                                            clickable: true
+                                        },
+                                        yaxis: {
+                                            tickColor: '#eee',
+                                            tickDecimals: 0,
+                                            font: {
+                                                lineHeight: 13,
+                                                style: "normal",
+                                                color: "#9f9f9f",
+                                                size: 11
+
+                                            },
+                                            shadowSize: 0
+                                        },
+
+                                        xaxis: {
+                                            mode: "categories",
+                                            tickColor: '#fff',
+                                            tickDecimals: 0,
+                                            font: {
+                                                lineHeight: 13,
+                                                style: "normal",
+                                                color: "#9f9f9f",
+                                                size: 15,
+                                            },
+
+                                            shadowSize: 0,
+                                        },
+
+                                        legend: {
+                                            container: '.flc-bar',
+                                            backgroundOpacity: 0.5,
+                                            noColumns: 0,
+                                            backgroundColor: "white",
+                                            lineWidth: 0,
+
+                                        }
+                                    });
+
+
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <!-- ACTIVITY -->
+            <div ng-if="ctrl.menu.activeTabIndex == 3">
+
+                <!-- by students -->
+                <div ng-if="ctrl.menu[ctrl.menu.activeTabIndex].activeTabIndex == 0">
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card card-chart dashboard-card-shadow">
+                                <div class="card-header">
+                                    <h2 class="pull-left">App Usage</h2>
+
+                                    <div class="dropdown pull-right btn-group" data-animation="flipInX,flipOutX">
+
+                                        <button type="button" class="btn bgm-teal" style="width:auto"
+                                                disabled="disabled">Select Duration :
+                                        </button>
+                                        <button type="button" class="btn bgm-teal" data-toggle="dropdown"
+                                                style="width:150px">Last 1 Year <i class="caret"></i></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="">Last Month</a></li>
+                                            <li><a href="">Last 6 Months</a></li>
+                                            <li><a href="">Last 1 Year</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="">All time</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-body card-padding-sm">
+                                    <canvas id="myChart" style="width:100%;height:193px"></canvas>
+                                    <script>
+                                        lineChartMonthly("myChart");
+                                    </script>
+                                    <div class="flc-">
+                                        <table style="font-size:smaller;color:#545454">
+                                            <tbody>
+                                            <tr>
+                                                <td class="legendColorBox">
+                                                    <div style="border:1px solid #ccc;padding:1px">
+                                                        <div style="width:4px;height:0;border:5px solid rgba(151,187,205,1);overflow:hidden"></div>
+                                                    </div>
+                                                </td>
+                                                <td class="legendLabel">User Count</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="card card-chart dashboard-card-shadow">
+                                <div class="card-header">
+                                    <h2 class="pull-left">Web Usage</h2>
+
+                                    <div class="dropdown pull-right btn-group" data-animation="flipInX,flipOutX">
+
+                                        <button type="button" class="btn bgm-teal" style="width:auto"
+                                                disabled="disabled">Select Duration :
+                                        </button>
+                                        <button type="button" class="btn bgm-teal" data-toggle="dropdown"
+                                                style="width:150px">Last 1 Year <i class="caret"></i></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="">Last Month</a></li>
+                                            <li><a href="">Last 6 Months</a></li>
+                                            <li><a href="">Last 1 Year</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="">All time</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-body card-padding-sm">
+                                    <canvas id="myChart1" style="width:100%;height:193px"></canvas>
+                                    <script>
+                                        lineChartMonthly("myChart1");
+                                    </script>
+                                    <div class="flc-">
+                                        <table style="font-size:smaller;color:#545454">
+                                            <tbody>
+                                            <tr>
+                                                <td class="legendColorBox">
+                                                    <div style="border:1px solid #ccc;padding:1px">
+                                                        <div style="width:4px;height:0;border:5px solid rgba(151,187,205,1);overflow:hidden"></div>
+                                                    </div>
+                                                </td>
+                                                <td class="legendLabel">User Count</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <!-- by faculty -->
+                <div ng-if="ctrl.menu[ctrl.menu.activeTabIndex].activeTabIndex == 1">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card card-chart dashboard-card-shadow">
+                                <div class="card-header">
+                                    <h2 class="pull-left">App Usage</h2>
+
+                                    <div class="dropdown pull-right btn-group" data-animation="flipInX,flipOutX">
+
+                                        <button type="button" class="btn bgm-teal" style="width:auto"
+                                                disabled="disabled">Select Duration :
+                                        </button>
+                                        <button type="button" class="btn bgm-teal" data-toggle="dropdown"
+                                                style="width:150px">Last 1 Year <i class="caret"></i></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="">Last Month</a></li>
+                                            <li><a href="">Last 6 Months</a></li>
+                                            <li><a href="">Last 1 Year</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="">All time</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-body card-padding-sm">
+                                    <canvas id="myChart" style="width:100%;height:193px"></canvas>
+                                    <script>
+                                        lineChartMonthly("myChart");
+                                    </script>
+                                    <div class="flc-">
+                                        <table style="font-size:smaller;color:#545454">
+                                            <tbody>
+                                            <tr>
+                                                <td class="legendColorBox">
+                                                    <div style="border:1px solid #ccc;padding:1px">
+                                                        <div style="width:4px;height:0;border:5px solid rgba(151,187,205,1);overflow:hidden"></div>
+                                                    </div>
+                                                </td>
+                                                <td class="legendLabel">User Count</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="card card-chart dashboard-card-shadow">
+                                <div class="card-header">
+                                    <h2 class="pull-left">Web Usage</h2>
+
+                                    <div class="dropdown pull-right btn-group" data-animation="flipInX,flipOutX">
+
+                                        <button type="button" class="btn bgm-teal" style="width:auto"
+                                                disabled="disabled">Select Duration :
+                                        </button>
+                                        <button type="button" class="btn bgm-teal" data-toggle="dropdown"
+                                                style="width:150px">Last 1 Year <i class="caret"></i></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="">Last Month</a></li>
+                                            <li><a href="">Last 6 Months</a></li>
+                                            <li><a href="">Last 1 Year</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="">All time</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-body card-padding-sm">
+                                    <canvas id="myChart1" style="width:100%;height:193px"></canvas>
+                                    <script>
+                                        lineChartMonthly("myChart1");
+                                    </script>
+                                    <div class="flc-">
+                                        <table style="font-size:smaller;color:#545454">
+                                            <tbody>
+                                            <tr>
+                                                <td class="legendColorBox">
+                                                    <div style="border:1px solid #ccc;padding:1px">
+                                                        <div style="width:4px;height:0;border:5px solid rgba(151,187,205,1);overflow:hidden"></div>
+                                                    </div>
+                                                </td>
+                                                <td class="legendLabel">User Count</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <!-- todo -->
+                <div ng-if="ctrl.menu[ctrl.menu.activeTabIndex].activeTabIndex == 2">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card card-chart dashboard-card-shadow">
+                                <div class="card-header">
+                                    <h2 class="pull-left">Todo Completed</h2>
+
+                                    <div class="dropdown pull-right btn-group" data-animation="flipInX,flipOutX">
+
+                                        <button type="button" class="btn bgm-teal" style="width:auto"
+                                                disabled="disabled">Select Duration :
+                                        </button>
+                                        <button type="button" class="btn bgm-teal" data-toggle="dropdown"
+                                                style="width:150px">Last 1 Year <i class="caret"></i></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="">Last Month</a></li>
+                                            <li><a href="">Last 6 Months</a></li>
+                                            <li><a href="">Last 1 Year</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="">All time</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-body card-padding-sm">
+                                    <canvas id="myChart" style="width:100%;height:193px"></canvas>
+                                    <script>
+                                        lineChartMonthly("myChart");
+                                    </script>
+                                    <div class="flc-">
+                                        <table style="font-size:smaller;color:#545454">
+                                            <tbody>
+                                            <tr>
+                                                <td class="legendColorBox">
+                                                    <div style="border:1px solid #ccc;padding:1px">
+                                                        <div style="width:4px;height:0;border:5px solid rgba(151,187,205,1);overflow:hidden"></div>
+                                                    </div>
+                                                </td>
+                                                <td class="legendLabel">User Count</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- notifications -->
+                <div ng-if="ctrl.menu[ctrl.menu.activeTabIndex].activeTabIndex == 3">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card card-chart dashboard-card-shadow">
+                                <div class="card-header">
+                                    <h2 class="pull-left">Notifications Sent</h2>
+
+                                    <div class="dropdown pull-right btn-group" data-animation="flipInX,flipOutX">
+
+                                        <button type="button" class="btn bgm-teal" style="width:auto"
+                                                disabled="disabled">Select Duration :
+                                        </button>
+                                        <button type="button" class="btn bgm-teal" data-toggle="dropdown"
+                                                style="width:150px">Last 1 Year <i class="caret"></i></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="">Last Month</a></li>
+                                            <li><a href="">Last 6 Months</a></li>
+                                            <li><a href="">Last 1 Year</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="">All time</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-body card-padding-sm">
+                                    <canvas id="myChart" style="width:100%;height:193px"></canvas>
+                                    <script>
+                                        lineChartMonthly("myChart");
+                                    </script>
+                                    <div class="flc-">
+                                        <table style="font-size:smaller;color:#545454">
+                                            <tbody>
+                                            <tr>
+                                                <td class="legendColorBox">
+                                                    <div style="border:1px solid #ccc;padding:1px">
+                                                        <div style="width:4px;height:0;border:5px solid rgba(151,187,205,1);overflow:hidden"></div>
+                                                    </div>
+                                                </td>
+                                                <td class="legendLabel">User Count</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- events -->
+                <div ng-if="ctrl.menu[ctrl.menu.activeTabIndex].activeTabIndex == 4">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card card-chart dashboard-card-shadow">
+                                <div class="card-header">
+                                    <h2 class="pull-left">Events Created</h2>
+
+                                    <div class="dropdown pull-right btn-group" data-animation="flipInX,flipOutX">
+
+                                        <button type="button" class="btn bgm-teal" style="width:auto"
+                                                disabled="disabled">Select Duration :
+                                        </button>
+                                        <button type="button" class="btn bgm-teal" data-toggle="dropdown"
+                                                style="width:150px">Last 1 Year <i class="caret"></i></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="">Last Month</a></li>
+                                            <li><a href="">Last 6 Months</a></li>
+                                            <li><a href="">Last 1 Year</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="">All time</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-body card-padding-sm">
+                                    <canvas id="myChart" style="width:100%;height:193px"></canvas>
+                                    <script>
+                                        lineChartMonthly("myChart");
+                                    </script>
+                                    <div class="flc-">
+                                        <table style="font-size:smaller;color:#545454">
+                                            <tbody>
+                                            <tr>
+                                                <td class="legendColorBox">
+                                                    <div style="border:1px solid #ccc;padding:1px">
+                                                        <div style="width:4px;height:0;border:5px solid rgba(151,187,205,1);overflow:hidden"></div>
+                                                    </div>
+                                                </td>
+                                                <td class="legendLabel">User Count</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Newsletters -->
+                <div ng-if="ctrl.menu[ctrl.menu.activeTabIndex].activeTabIndex == 5">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card card-chart dashboard-card-shadow">
+                                <div class="card-header">
+                                    <h2 class="pull-left">Newsletters Created</h2>
+
+                                    <div class="dropdown pull-right btn-group" data-animation="flipInX,flipOutX">
+
+                                        <button type="button" class="btn bgm-teal" style="width:auto"
+                                                disabled="disabled">Select Duration :
+                                        </button>
+                                        <button type="button" class="btn bgm-teal" data-toggle="dropdown"
+                                                style="width:150px">Last 1 Year <i class="caret"></i></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="">Last Month</a></li>
+                                            <li><a href="">Last 6 Months</a></li>
+                                            <li><a href="">Last 1 Year</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="">All time</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-body card-padding-sm">
+                                    <canvas id="myChart" style="width:100%;height:193px"></canvas>
+
+                                    <script>
+                                        lineChartMonthly("myChart");
+                                    </script>
+
+                                    <div class="flc-">
+                                        <table style="font-size:smaller;color:#545454">
+                                            <tbody>
+                                            <tr>
+                                                <td class="legendColorBox">
+                                                    <div style="border:1px solid #ccc;padding:1px">
+                                                        <div style="width:4px;height:0;border:5px solid rgba(151,187,205,1);overflow:hidden"></div>
+                                                    </div>
+                                                </td>
+                                                <td class="legendLabel">User Count</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- QUICK STATS -->
+            <div ng-if="ctrl.menu.activeTabIndex == 1">
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div id="site-visits" class="bgm-teal dashboard-card-shadow" style="height:324px">
+                            <div class="p-20">
+
+
+                                <small>DEPARTMENTS</small>
+                                <h3 class="m-0 f-400">425</h3>
+
+                                <br>
+
+                                <small>BATCHES</small>
+                                <h3 class="m-0 f-400">1252</h3>
+
+                                <br>
+
+                                <small>EXAMS</small>
+                                <h3 class="m-0 f-400">156</h3>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4">
+                        <div id="site-visits" class="bgm-teal" style="height:324px">
+
+                            <button ng-click="ctrl.menu.activeTabIndex = 2;"
+                                    class="btn btn-default btn-icon waves-effect pull-right" style="margin:10px"><i
+                                    class="md md-trending-up"></i></button>
+
+                            <div class="p-20">
+
+                                <small>TOTAL ACTIVE USERS</small>
+                                <h3 class="m-0 f-400">9895</h3>
+
+                                <br>
+
+                                <small>STUDENTS</small>
+                                <h3 class="m-0 f-400">8465</h3>
+
+                                <br>
+
+                                <small>FACULTIES</small>
+                                <h3 class="m-0 f-400">458</h3>
+
+                                <br>
+
+                                <small>PARENTS</small>
+                                <h3 class="m-0 f-400">4875</h3>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4">
+                        <div id="site-visits" class="bgm-teal dashboard-card-shadow" style="height:324px">
+                            <button ng-click="ctrl.menu.activeTabIndex = 3;"
+                                    class="btn btn-default btn-icon waves-effect pull-right" style="margin:10px"><i
+                                    class="md md-trending-up"></i></button>
+                            <div class="p-20">
+
+                                <small>TODO</small>
+                                <h3 class="m-0 f-400">9895</h3>
+
+                                <br>
+
+                                <small>NOTIFICATIONS</small>
+                                <h3 class="m-0 f-400">4869</h3>
+
+                                <br>
+
+                                <small>EVENTS</small>
+                                <h3 class="m-0 f-400">458</h3>
+
+                                <br>
+
+                                <small>NEWESLETTERS</small>
+                                <h3 class="m-0 f-400">48</h3>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </section>
+</section>
+
+<footer id="footer" data-ng-include src="'views/includes/footer.html'"></footer>

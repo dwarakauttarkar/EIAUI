@@ -1,0 +1,416 @@
+<header id="header" data-ng-include src="'views/includes/header.html'"
+        data-ng-controller="headerCtrl as hctrl"></header>
+
+<section id="main">
+    <aside id="sidebar" data-ng-include src="'views/chief/includes/sidebar-left.html'"
+           data-ng-class="{ 'toggled': mactrl.sidebarToggle.left === true }"></aside>
+
+    <section id="content" data-ng-controller="chief_manageOrg as ctrl">
+
+        <div class="container">
+
+            <div class="card dashboard-nav-shadow">
+
+                <div class="dropdown pull-right btn-group" data-animation="flipInX,flipOutX" style="margin:15px"
+                     ng-if="ctrl.menu.activeTabIndex == 3">
+
+                    <button type="button" class="btn bgm-teal waves-effect" style="width:auto" disabled="disabled">
+                        Select Department :
+                    </button>
+                    <button type="button" class="btn bgm-teal waves-effect" data-toggle="dropdown"
+                            style="width:200px;z-index:99999">Computer Science <i class="caret"></i></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="">Computer Science</a></li>
+                        <li><a href="">Electronics</a></li>
+                        <li><a href="">Mechanical</a></li>
+                        <li><a href="">Civil</a></li>
+                        <li><a href="">Electrical</a></li>
+                        <li><a href="">Chemical</a></li>
+                        <li class="divider"></li>
+                        <li><a href="">All Departments</a></li>
+                    </ul>
+                </div>
+
+                <div class="card-header card-padding">
+                    <h2 STYLE="color: #1C4486; font-weight: 600;">SVBIT INSTITUTE OF TECHNOLOGY (SVBIT)</h2>
+
+                    <ol class="breadcrumb">
+                        <li>SVBIT</li>
+
+                        <li ng-if="ctrl.menu.activeTabIndex == 0">EDIT INFO</li>
+                        <li ng-if="ctrl.menu.activeTabIndex == 1">ADMIN USERS</li>
+                        <li ng-if="ctrl.menu.activeTabIndex == 2">DEPARTMENTS</li>
+
+                    </ol>
+
+
+                </div>
+
+
+                <div class="pm-body clearfix">
+                    <ul class="tab-nav tn-justified">
+
+                        <li class="btn-wave"
+                            data-ng-repeat="tab in ctrl.menu.titles"
+                            data-ng-class="{'active':ctrl.menu.activeTabIndex == $index}">
+                            <a data-ng-click="ctrl.menu.activeTabIndex = $index; ctrl.loadView($index);">
+                                {{tab}}
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div ng-if="ctrl.menu[ctrl.menu.activeTabIndex]" class="animated pulse">
+                        <ul class="tab-nav tab-tab-nav tn-justified">
+
+                            <li class="btn-wave"
+                                data-ng-repeat="tab in ctrl.menu[ctrl.menu.activeTabIndex].titles"
+                                data-ng-class="{'active':ctrl.menu[ctrl.menu.activeTabIndex].activeTabIndex == $index}">
+                                <a data-ng-click="ctrl.menu[ctrl.menu.activeTabIndex].activeTabIndex = $index; ctrl.loadView(ctrl.menu.activeTabIndex,$index);">
+                                    {{tab}}
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <div class="card dashboard-card-shadow" ng-if="ctrl.menu.activeTabIndex == 0">
+                <div class="card-header">
+                    <h2>Organization Information
+                        <small></small>
+                    </h2>
+                </div>
+                <form class="form-horizontal" role="form">
+                    <div class="card-body card-padding">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">Organization Name</label>
+
+                            <div class="col-sm-10">
+                                <div class="fg-line">
+                                    <input type="text" class="form-control input-sm" id="inputEmail3"
+                                           placeholder="Name">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">Organization Code</label>
+
+                            <div class="col-sm-10">
+                                <div class="fg-line">
+                                    <input type="text" class="form-control input-sm" id="inputEmail3"
+                                           placeholder="Organization Code">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">Established Year</label>
+
+                            <div class="col-sm-10">
+
+                                <div class="fg-line">
+                                    <input type="number" class="form-control input-sm" id="inputPassword3"
+                                           placeholder="Established Year">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">Contact No</label>
+
+                            <div class="col-sm-10">
+
+                                <div class="fg-line">
+                                    <input type="number" class="form-control input-sm" id="inputPassword3"
+                                           placeholder="Contact No">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">Address</label>
+
+                            <div class="col-sm-10">
+
+                                <div class="fg-line">
+                                    <textarea class="form-control" rows="5" placeholder="Address"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-primary btn-sm"
+                                        ng-click="ctrl.updateOrganization()">Update
+                                </button>
+                                <button type="submit" class="btn btn-primary btn-sm" ng-click="">Reset</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="card dashboard-card-shadow" ng-if="ctrl.menu.activeTabIndex == 1">
+
+                <!-- For Creating Admin -->
+                <button data-toggle="modal" data-target="#modalCreateAdmin" type="button"
+                        class="pull-right btn bgm-teal waves-effect" style="width:auto;margin:20px;z-index:9999">Create
+                    New Admin
+                </button>
+
+                <!-- modal for create/edit admin popup -->
+                <div class="modal fade" id="modalCreateAdmin" tabindex="-1" role="dialog" aria-hidden="true"
+                     style="display: none;">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Create Admin</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form role="form">
+                                    <div class="form-group fg-line">
+                                        <label for="lastname">Email ID
+                                            <br/>
+                                            <small>This will be username and password will be auto generated</small>
+                                        </label>
+                                        <input type="password" class="form-control input-sm" id="lastname"
+                                               placeholder="Enter Email ID">
+                                    </div>
+
+                                    <div class="form-group fg-line">
+                                        <label for="firstname">First Name</label>
+                                        <input type="email" class="form-control input-sm" id="firstname"
+                                               placeholder="Enter First Name">
+                                    </div>
+                                    <div class="form-group fg-line">
+                                        <label for="lastname">Last Name</label>
+                                        <input type="password" class="form-control input-sm" id="lastname"
+                                               placeholder="Enter Last Name">
+                                    </div>
+
+
+                                    <div class="form-group fg-line">
+                                        <label for="contactno">Contact No</label>
+                                        <input type="password" class="form-control input-sm" id="contactno"
+                                               placeholder="Enter Contact No"/>
+                                    </div>
+
+                                    <div class="form-group fg-line">
+                                        <label for="address">Address</label>
+                                        <input type="password" class="form-control input-sm" id="address"
+                                               placeholder="Enter Address"/>
+                                    </div>
+
+                                    <div class="form-group fg-line">
+                                        <label>Gender</label><br/>
+                                        <label class="radio radio-inline m-r-20">
+                                            <input type="radio" name="inlineRadioOptions" value="option1" class="">
+                                            <i class="input-helper"></i>
+                                            Male
+                                        </label>
+                                        <label class="radio radio-inline m-r-20">
+                                            <input type="radio" name="inlineRadioOptions" value="option1" class="">
+                                            <i class="input-helper"></i>
+                                            Female
+                                        </label>
+
+                                    </div>
+
+
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn bgm-teal waves-effect"
+                                        data-ng-click="ctrl.saveAdmin()">Save changes
+                                </button>
+                                <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-header">
+                    <h2>Organizations Admins
+                        <small></small>
+                    </h2>
+                </div>
+
+                <table class="table table-striped table-vmiddle" id="listAdminTable">
+                    <thead>
+                    <tr>
+                        <th data-column-id="id" data-type="numeric">ID</th>
+                        <th data-column-id="name">Name</th>
+                        <th data-column-id="email" data-order="desc">Email ID</th>
+                        <th data-column-id="contact" data-order="desc">Contact No</th>
+                        <th data-column-id="commands" data-formatter="commands" data-sortable="false">Commands</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>123</td>
+                        <td>John Macculam</td>
+                        <td>contact@svbit.ac.in</td>
+                        <td>079-4567-89-556</td>
+                        <td>
+                            <button data-toggle="modal" data-target="#modalCreateAdmin" type="button"
+                                    class="btn btn-icon command-edit">
+                                <span class="md md-edit"></span></button>
+                            <button type="button" class="btn btn-icon command-delete" data-swal-warning><span
+                                    class="md md-delete"></span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>123</td>
+                        <td>John Macculam</td>
+                        <td>contact@svbit.ac.in</td>
+                        <td>079-4567-89-556</td>
+                        <td>
+                            <button data-toggle="modal" data-target="#modalCreateAdmin" type="button"
+                                    class="btn btn-icon command-edit">
+                                <span class="md md-edit"></span></button>
+                            <button type="button" class="btn btn-icon command-delete" data-swal-warning><span
+                                    class="md md-delete"></span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>123</td>
+                        <td>John Macculam</td>
+                        <td>contact@svbit.ac.in</td>
+                        <td>079-4567-89-556</td>
+                        <td>
+                            <button data-toggle="modal" data-target="#modalCreateAdmin" type="button"
+                                    class="btn btn-icon command-edit">
+                                <span class="md md-edit"></span></button>
+                            <button type="button" class="btn btn-icon command-delete" data-swal-warning><span
+                                    class="md md-delete"></span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>123</td>
+                        <td>John Macculam</td>
+                        <td>contact@svbit.ac.in</td>
+                        <td>079-4567-89-556</td>
+                        <td>
+                            <button data-toggle="modal" data-target="#modalCreateAdmin" type="button"
+                                    class="btn btn-icon command-edit">
+                                <span class="md md-edit"></span></button>
+                            <button type="button" class="btn btn-icon command-delete" data-swal-warning><span
+                                    class="md md-delete"></span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>123</td>
+                        <td>John Macculam</td>
+                        <td>contact@svbit.ac.in</td>
+                        <td>079-4567-89-556</td>
+                        <td>
+                            <button data-toggle="modal" data-target="#modalCreateAdmin" type="button"
+                                    class="btn btn-icon command-edit">
+                                <span class="md md-edit"></span></button>
+                            <button type="button" class="btn btn-icon command-delete" data-swal-warning><span
+                                    class="md md-delete"></span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>123</td>
+                        <td>John Macculam</td>
+                        <td>contact@svbit.ac.in</td>
+                        <td>079-4567-89-556</td>
+                        <td>
+                            <button data-toggle="modal" data-target="#modalCreateAdmin" type="button"
+                                    class="btn btn-icon command-edit">
+                                <span class="md md-edit"></span></button>
+                            <button type="button" class="btn btn-icon command-delete" data-swal-warning><span
+                                    class="md md-delete"></span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>123</td>
+                        <td>John Macculam</td>
+                        <td>contact@svbit.ac.in</td>
+                        <td>079-4567-89-556</td>
+                        <td>
+                            <button data-toggle="modal" data-target="#modalCreateAdmin" type="button"
+                                    class="btn btn-icon command-edit">
+                                <span class="md md-edit"></span></button>
+                            <button type="button" class="btn btn-icon command-delete" data-swal-warning><span
+                                    class="md md-delete"></span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>123</td>
+                        <td>John Macculam</td>
+                        <td>contact@svbit.ac.in</td>
+                        <td>079-4567-89-556</td>
+                        <td>
+                            <button data-toggle="modal" data-target="#modalCreateAdmin" type="button"
+                                    class="btn btn-icon command-edit">
+                                <span class="md md-edit"></span></button>
+                            <button type="button" class="btn btn-icon command-delete" data-swal-warning><span
+                                    class="md md-delete"></span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>123</td>
+                        <td>John Macculam</td>
+                        <td>contact@svbit.ac.in</td>
+                        <td>079-4567-89-556</td>
+                        <td>
+                            <button data-toggle="modal" data-target="#modalCreateAdmin" type="button"
+                                    class="btn btn-icon command-edit">
+                                <span class="md md-edit"></span></button>
+                            <button type="button" class="btn btn-icon command-delete" data-swal-warning><span
+                                    class="md md-delete"></span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>123</td>
+                        <td>John Macculam</td>
+                        <td>contact@svbit.ac.in</td>
+                        <td>079-4567-89-556</td>
+                        <td>
+                            <button data-toggle="modal" data-target="#modalCreateAdmin" type="button"
+                                    class="btn btn-icon command-edit">
+                                <span class="md md-edit"></span></button>
+                            <button type="button" class="btn btn-icon command-delete" data-swal-warning><span
+                                    class="md md-delete"></span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>123</td>
+                        <td>John Macculam</td>
+                        <td>contact@svbit.ac.in</td>
+                        <td>079-4567-89-556</td>
+                        <td>
+                            <button data-toggle="modal" data-target="#modalCreateAdmin" type="button"
+                                    class="btn btn-icon command-edit">
+                                <span class="md md-edit"></span></button>
+                            <button type="button" class="btn btn-icon command-delete" data-swal-warning><span
+                                    class="md md-delete"></span></button>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+
+
+            </div>
+
+            <div class="card dashboard-card-shadow" ng-if="ctrl.menu.activeTabIndex == 2">
+
+                <div class="card-body card-padding">
+                    <h3>Work In Progress</h3>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </section>
+</section>
+
+<footer id="footer" data-ng-include src="'views/includes/footer.html'"></footer>
