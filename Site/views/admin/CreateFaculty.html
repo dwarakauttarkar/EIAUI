@@ -1,0 +1,84 @@
+<header id="header" data-ng-include src="'views/includes/header.html'"
+data-ng-controller="headerCtrl as hctrl"></header>
+
+<section id="main">
+	<aside id="sidebar" data-ng-include src="'views/admin/includes/sidebar-left.html'"
+	data-ng-class="{ 'toggled': mactrl.sidebarToggle.left === true }"></aside>
+
+	<section id="content" data-ng-controller="admin_dashboard as ctrl">
+
+		<div class="container">
+
+			<div class="card">
+
+				<form class="form-horizontal" role="form">
+					<div class="card-header">
+						<h2>Create Faculty</h2>
+					</div>
+
+					<div class="card-body card-padding">
+						<div class="form-group">
+							<label for="inputEmail3" class="col-sm-2 control-label">Faculty ID</label>
+							<div class="col-sm-10">
+								<div class="fg-line">
+									<input type="text" class="form-control input-sm" id="inputEmail3" placeholder="ID" data-ng-model="ctrl.ID">
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputEmail3" class="col-sm-2 control-label">Designation</label>
+							<div class="col-sm-10">
+								<div class="fg-line">
+									<input type="text" class="form-control input-sm" id="inputEmail3" placeholder="Designation" data-ng-model="ctrl.designation">
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputPassword3" class="col-sm-2 control-label">Qualification</label>
+							<div class="col-sm-10">
+
+								<div class="fg-line">
+									<input type="number" class="form-control input-sm" id="inputPassword3" placeholder="Qualification">
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="inputPassword3" class="col-sm-2 control-label">HOD of the department?</label>
+
+							<style type="text/css">
+								.checkbox-inline {
+									padding-top: 0px !important;
+								}
+							</style>
+
+							<div class="col-sm-offset-2 col-sm-10">
+
+								<label class="checkbox checkbox-inline m-r-20">
+									<input type="radio" value="option1">
+									<i class="input-helper"></i>Yes
+								</label>
+								<label class="checkbox checkbox-inline m-r-20">
+									<input type="radio" value="option2">
+									<i class="input-helper"></i>No
+								</label>
+								
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<button type="submit" class="btn btn-primary btn-sm" ng-click="ctrl.createFaculty()">Save</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+
+
+
+		</div>
+
+	</section>
+</section>
+
+<footer id="footer" data-ng-include src="'views/includes/footer.html'"></footer>

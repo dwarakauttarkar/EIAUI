@@ -1,0 +1,830 @@
+
+
+<div class="sn-container">
+  <ul>
+    <li>
+        <button class="btn btn-default btn-icon waves-effect" ng-click="ctrl.prevRow()"><i class="md md-keyboard-arrow-up"></i></button>
+    </li>
+    <li>
+        <button class="btn btn-default btn-icon waves-effect"  ng-click="ctrl.nextRow()"><i class="md md-keyboard-arrow-down"></i></button>
+    </li>
+
+  </ul>
+</div>
+
+
+
+
+<div class="card" id="dept_attendance"  style="margin-bottom:15px">
+    
+    <div class="card-body" style="padding: 9px 20px;padding-top: 0px;">
+
+        <div class="row stats_panel">
+
+            <h4>{{ctrl.selectedNode.title}} ATTENDANCE</h4>
+
+             <style>
+             .mini-charts-item:before {
+                    width: 144px;
+              }
+            .mini-charts-item1:before {
+                    width: 113px;
+              }
+
+
+            </style>
+
+
+          <div class="col-md-3">
+           
+            <div class="mini-charts-item stats_panel_item">
+                <div class="clearfix">
+                    <div class="chart stats-bar-3" data-sparkline-bar></div>
+                    <div class="count" style="cursor: pointer;" ng-click="ctrl.showMainGraph = !ctrl.showMainGraph; ">
+                        <medium style="line-height: 56px;margin-left:5px">Overview</medium>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div ng-if="true" class="col-md-3">
+            <div class="stats_panel_item">
+                <div class="clearfix">
+                    <div class="count">
+                        <medium>Current Sem Attendance</medium>
+                        <h2>78%</h2>
+                        <small>(April-June)</small>
+                    </div>                   
+                </div>
+            </div>
+        </div>
+
+        <div ng-if="true" class="col-md-3">
+            <div class="stats_panel_item">
+                <div class="clearfix">
+                    <div class="count">
+                        <medium>Current Month Attendance</medium>
+                        <h2>65%</h2>
+                        <small>(June)</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+                <style>
+                    .pagination > li > a, .pagination > li > span {
+                    border-radius: 50% !important;
+                    padding: 0;
+                    width: 50px;
+                    height: 50px;
+                    line-height: 46px;
+                    text-align: center;
+                    font-size: 20px;
+                    z-index: 1;
+                    position: relative;
+                 }
+                </style>
+
+                <script type="text/ng-template" id="popover">
+                    <div class="popover fade bottom in" role="tooltip"  style="display: block;">
+                        <div class="arrow" style="left: 50%;"></div>
+                           <div class="popover-content" style="width:250px;text-align:center">
+                           <ul class="pagination">
+                            <li ng-repeat="sem in ctrl.semesters.list"
+                                ng-class="{'active':ctrl.semesters.selected.no == sem.no, 'disabled':sem.disabled}"
+                                >
+                                <a ng-click="ctrl.setSem(sem);hidePopover()">{{sem.no}}</a>
+                            </li>
+
+                         </ul>
+                        </div>
+                    </div>
+                </script>
+
+
+
+        <div ng-if="true" class="col-md-3">
+
+            <div 
+                    class="mini-charts-item mini-charts-item1 stats_panel_item" 
+                    style="cursor:pointer" 
+                    href='#'
+                      ns-popover
+                      ns-popover-template="popover"
+                      ns-popover-trigger="click"
+                      ns-popover-placement="bottom|left"
+
+                >
+                <script>
+                     /* $('.mini-charts-item1').popover({ 
+                        html : true,
+                        content: function() {
+                          return $('#popover_content_wrapper').html();
+                        }
+                      });
+                       */ 
+                </script>
+
+                <div class="clearfix">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="count" style="
+                                    color: white;
+                                    line-height: 56px;
+                                    margin-left: 10px;
+                                    padding-left: 10px;                                   
+                                    margin-bottom: 12px;
+                                    display: inline-block;
+                            ">
+                            <span style="font-size: 35px;">
+                                 {{ctrl.semesters.selected.no}}
+                            </span>
+                            <span style="font-size:21px">
+                                Sem
+                            </span>
+                            <span style="    position: absolute;
+                                        top: -6px;
+                                        font-size: 13px;
+                                        color: white;
+                                        margin-left: 19px;
+                                    ">
+                                {{ctrl.semesters.selected.subscript}}
+                            </span>
+                    </div>
+                        </div>
+                        <div class="col-md-6" style="padding-left:0px">
+                         <div class="count" style="display:inline-block;padding-left:0px;margin-left:-10px">
+                        <medium style="line-height: 56px;font-size:18px;">Select Semester</medium>
+                    </div>
+                    
+                        </div>
+                        
+                    </div>
+                
+
+                   
+                        
+
+                </div>
+            </div>
+        </div>
+        
+        <div ng-if="false" class="col-md-1" style="width:12.5%" ng-repeat="i in [1, 2, 3, 4,5,6,7,8]">
+            <div class="stats_panel_item">
+                <div class="clearfix">
+                    <span style="font-size: 39px;
+                                    color: white;
+                                    line-height: 46px;
+                                    margin-left: 28px;
+                                    padding-right: 20px;
+                                    margin-top: 12px;
+                                    margin-bottom: 12px;
+                                    border-right: 1px solid rgba(123, 226, 243, 0.29);
+                                    display: inline-block;
+                            ">
+                        {{i}}
+                    </span>
+                    <div style="position: absolute;
+                                left: 25px;
+                                top: 5px;
+                                font-size: 15px;
+                                color: white;
+                                
+                            ">
+                        st
+                    </div>
+                    <span style="font-size: 25px;
+                                    color: white;
+                                    float:right;
+                                    line-height: 46px;                                  
+                                    padding-right: 5px;
+                                    margin-top: 12px;
+                                    margin-bottom: 12px;                                    
+                                    display: inline-block;
+                            ">
+                        {{ctrl.randomNo(40,90)}}%
+                    </span>
+
+                </div>
+            </div>
+        </div>           
+    </div>
+
+    <div ng-if="ctrl.showMainGraph" class="row" style="padding-top:20px">
+
+        <div class="col-md-4">
+            <div class="dropdown  btn-group" data-animation="flipInX,flipOutX" ng-if="false">               
+                 <button type="button" class="btn bgm-teal" data-toggle="dropdown" style="width:150px">Sem 3 <i class="caret"></i></button>
+                 <ul class="dropdown-menu">
+                    <li><a href="">Sem 1</a></li>
+                    <li><a href="">Sem 2</a></li>
+                    <li><a href="">Sem 3</a></li>
+                    <li class="divider"></li>
+                    <li><a href="">Sem 4</a></li>
+                    <li><a href="">Sem 5</a></li>
+                    <li><a href="">Sem 6</a></li>
+                </ul>
+            </div>
+
+            <h5 style="margin-top: 3px;margin-bottom: 3px;">Period : April - October</h5>
+            <small style="font-size: 12px;">Whole college's current sem's monthly attendance</small>
+            <br/>
+            <table class="table condensed_table_4">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Month</th>
+                        <th>Lectures</th>
+                        <th>Labs</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>April</td>
+                        <td>58 %</td>
+                        <td>78 %</td>
+
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>May</td>
+                        <td>59 %</td>
+                        <td>84 %</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>June</td>
+                        <td>68 %</td>
+                        <td>89 %</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>July</td>
+                        <td> -</td>
+                        <td> -</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>August</td>
+                        <td> -</td>
+                        <td> -</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>September</td>
+                        <td> -</td>
+                        <td> -</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="col-md-8" style="border-left: 1px solid rgba(0, 150, 136, 0.18);padding-top:15px">
+
+           <canvas id="monthly_view" style="width:90%;height:170px;padding-top:10px">
+           </canvas>
+
+                            <script>
+                                batch_compare_monthly_attendance("monthly_view");
+                            </script>
+
+                            <div class="flc-">
+                                <table style="font-size:20px;color:#545454">
+                                    <tbody>
+                                        <tr>
+                                            <td class="legendColorBox">
+                                                <div style="border:1px solid #ccc;padding:1px">
+                                                    <div style="width:4px;height:0;border:5px solid #3F51B5;overflow:hidden"></div>
+                                                </div>
+                                            </td>
+                                            <td class="legendLabel">Lectures</td>
+                                             <td class="legendColorBox">
+                                                <div style="border:1px solid #ccc;padding:1px">
+                                                    <div style="width:4px;height:0;border:5px solid #8BC34A;overflow:hidden"></div>
+                                                </div>
+                                            </td>
+                                            <td class="legendLabel">Labs</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+        </div>
+    </div>
+  
+</div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-header p-b-0">
+        <h2>First Semester</h2>
+        <hr/>
+    </div>
+<div class="card-body card-padding p-t-5">
+    <div class="row" style="">
+
+            <div class="col-md-4">
+                <div class="dropdown  btn-group" data-animation="flipInX,flipOutX" ng-if="false">               
+                     <button type="button" class="btn bgm-teal" data-toggle="dropdown" style="width:150px">Sem 3 <i class="caret"></i></button>
+                     <ul class="dropdown-menu">
+                        <li><a href="">Sem 1</a></li>
+                        <li><a href="">Sem 2</a></li>
+                        <li><a href="">Sem 3</a></li>
+                        <li class="divider"></li>
+                        <li><a href="">Sem 4</a></li>
+                        <li><a href="">Sem 5</a></li>
+                        <li><a href="">Sem 6</a></li>
+                    </ul>
+                </div>
+
+                <h5 style="margin-top: 3px;margin-bottom: 3px;">Period : April - October</h5>
+                <small style="font-size: 12px;">Whole college's current sem's monthly attendance</small>
+                <br/>
+                <table class="table condensed_table_4">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Month</th>
+                            <th>Lectures</th>
+                            <th>Labs</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>April</td>
+                            <td>58 %</td>
+                            <td>78 %</td>
+
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>May</td>
+                            <td>59 %</td>
+                            <td>84 %</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>June</td>
+                            <td>68 %</td>
+                            <td>89 %</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>July</td>
+                            <td> -</td>
+                            <td> -</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>August</td>
+                            <td> -</td>
+                            <td> -</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>September</td>
+                            <td> -</td>
+                            <td> -</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+            <div class="col-md-8" style="border-left: 1px solid rgba(0, 150, 136, 0.18);padding-top:15px">
+
+               <canvas id="monthly_view_sem" style="width:90%;height:170px;padding-top:10px">
+               </canvas>
+
+                                <script>
+                                    batch_compare_monthly_attendance("monthly_view_sem");
+                                </script>
+
+                                <div class="flc-">
+                                    <table style="font-size:20px;color:#545454">
+                                        <tbody>
+                                            <tr>
+                                                <td class="legendColorBox">
+                                                    <div style="border:1px solid #ccc;padding:1px">
+                                                        <div style="width:4px;height:0;border:5px solid #3F51B5;overflow:hidden"></div>
+                                                    </div>
+                                                </td>
+                                                <td class="legendLabel">Lectures</td>
+                                                 <td class="legendColorBox">
+                                                    <div style="border:1px solid #ccc;padding:1px">
+                                                        <div style="width:4px;height:0;border:5px solid #8BC34A;overflow:hidden"></div>
+                                                    </div>
+                                                </td>
+                                                <td class="legendLabel">Labs</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+            </div>
+    </div>
+</div>
+</div>
+
+
+<div class="row" id="row2">
+    <div class="col-md-5">
+        <div class="card">
+            <div class="card-header p-b-0">
+                <h2>Students</h2>
+            </div>
+            <div class="card-body card-padding">
+
+            <div class="form-group p-b-0">
+                <div class="fg-line">
+                    <input type="text" class="form-control input-sm" placeholder="Search Student" ng-model="ctrl.searchStudentModel" ng-change="ctrl.filterStudentAtt()">
+                </div>
+            </div>
+
+                <table class="table table-striped studentAttTable" at-table at-paginated at-list="ctrl.studentListAttendaceFiltered" at-config="ctrl.studentListAttendace.config">
+                  <thead></thead>
+                  <tbody>
+                    <tr>
+                      <!--<td at-implicit at-sortable at-attribute="index" width="150" at-initial-sorting="asc"></td>-->
+
+                      <td at-implicit at-sortable at-title="Code" at-attribute="studentCode"  width="100"></td>
+                      <td at-implicit at-sortable at-title="Name" at-attribute="name"  width="150"></td>
+                      <td at-implicit at-sortable at-title="Lecture Attendance" at-attribute="lectureAttendance"  width="100"></td>
+                      <td at-implicit at-sortable at-title="Lab Attendance" at-attribute="labAttendance"  width="100"></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <at-pagination at-list="ctrl.studentListAttendaceFiltered" at-config="ctrl.studentListAttendace.config"></at-pagination>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-7">
+        <div class="card">
+            <div class="card-header p-b-0">
+                <h2>Factulties and lecture attendance</h2>
+            </div>
+            <div class="card-body card-padding">
+
+            <div class="form-group p-b-0">
+                <div class="fg-line">
+                    <input type="text" class="form-control input-sm" placeholder="Search Faculty or Subject" ng-model="ctrl.searchFacultyModel" ng-change="ctrl.filterFacultyAtt()">
+                </div>
+            </div>
+
+                <table class="table table-striped studentAttTable" at-table at-paginated at-list="ctrl.facultyListAttendaceFiltered" at-config="ctrl.facultyListAttendace.config">
+                  <thead></thead>
+                  <tbody>
+                    <tr>
+                      <!--<td at-implicit at-sortable at-attribute="index" width="150" at-initial-sorting="asc"></td>-->
+
+                      <td at-implicit at-sortable at-title="Code" at-attribute="facultyCode"  width="100"></td>
+                      <td at-implicit at-sortable at-title="Name" at-attribute="name"  width="130"></td>
+                      <td at-implicit at-sortable at-title="Subject" at-attribute="subjectName" width="170"></td>
+                      <td at-implicit at-sortable at-title="Lecture Attendance" at-attribute="lectureAttendance"  width="100"></td>
+                      <td at-implicit at-sortable at-title="Lab Attendance" at-attribute="labAttendance"></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <at-pagination at-list="ctrl.facultyListAttendaceFiltered" at-config="ctrl.facultyListAttendace.config"></at-pagination>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="row" id="row3">
+
+
+    <div class="col-md-4">
+            <div class="card"  style="height: 358px">
+                 <div class="card-header p-b-0">
+                        <h2>Lecture and Lab counts</h2>
+                        <small>In Selected Sem</small>
+            </div>
+                <div class="card-body card-padding p-t-10">
+                    <table class="table table-condensed lectureLabCountsTable">
+                        <thead>
+                            <th>Subject</th>
+                            <th>Lectures</th>
+                            <th>Labs</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Maths-3</td>
+                                <td>152</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Data Structures</td>
+                                <td>175</td>
+                                <td>24</td>
+                            </tr>
+                            <tr>
+                                <td>Antennas and Wave propogation theory</td>
+                                <td>48</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Engineering Drawing</td>
+                                <td>135</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Logic and Design</td>
+                                <td>48</td>
+                                <td>26</td>
+                            </tr>
+                            <tr>
+                                <td>Artifical Intelligence</td>
+                                <td>78</td>
+                                <td>48</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card" style="height: 358px">
+            <div class="card-header p-b-0" >
+                        <h2>Lectures taken</h2>
+                        <small>In Selected Sem</small>
+            </div>
+            <div class="card-body">                
+                     <div id="b1_lectures" style="width:100%;height:300px"></div>                            
+                            <script>
+                                subjectsPieChart('b1_lectures');
+                           </script>
+            </div>
+        </div>
+    </div>
+
+     <div class="col-md-4">
+        <div class="card"  style="height: 358px">
+            <div class="card-header  p-b-0">
+                        <h2>Labs taken</h2>
+                        <small>In Selected Sem</small>
+            </div>
+            <div class="card-body">
+                            <div id="b1_labs" style="width:100%;height:300px;margin-top: -23px;"></div>                            
+                            <script>
+                                subjectsPieChart('b1_labs',true);
+                           </script>
+            </div>
+        </div>
+    </div>
+
+
+    
+</div>
+
+
+<div class="card"  style="height: 410px" id="row4">
+            <div class="card-header p-b-0">
+                        <h2>Lecture and Lab attendance</h2>
+                        <small>In Selected Sem</small>
+            </div>
+                <div class="card-body card-padding p-t-10">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <table class="table table-condensed lectureLabCountsTable" style="table-layout: fixed;">
+                        <thead>
+                            <th  style="width:20%">Subject Code</th>
+                            <th  style="width:40%">Subject</th>
+                            <th>Lecture Attedance</th>
+                            <th>Lab Attendance</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>M3</td>
+                                <td>Maths-3</td>
+                                <td>78%</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>DS</td>
+                                <td>Data Structures</td>
+                                <td>68%</td>
+                                <td>95%</td>
+                            </tr>
+                            <tr>
+                                <td>AWP</td>
+                                <td>Antennas and Wave propogation theory</td>
+                                <td>58%</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>ED</td>
+                                <td>Engineering Drawing</td>
+                                <td>56%</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>LD</td>
+                                <td>Logic and Design</td>
+                                <td>78%</td>
+                                <td>86%</td>
+                            </tr>
+                            <tr>
+                                <td>AI</td>
+                                <td>Artifical Intelligence</td>
+                                <td>79%</td>
+                                <td>96%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                        </div>
+                        <div class="col-md-8" style="padding-top:30px;text-align:center">
+                            <canvas id="b1_subject_attendance" style="width:90%;height:190px;"></canvas>
+
+                            <script>
+                                subject_wise_attendance_lectures("b1_subject_attendance");
+                            </script>
+
+                            <div class="flc-">
+                                <table style="font-size:20px;color:#545454">
+                                    <tbody>
+                                        <tr>
+                                            <td class="legendColorBox">
+                                                <div style="border:1px solid #ccc;padding:1px">
+                                                    <div style="width:4px;height:0;border:5px solid #3F51B5;overflow:hidden"></div>
+                                                </div>
+                                            </td>
+                                            <td class="legendLabel">Lectures</td>
+                                             <td class="legendColorBox">
+                                                <div style="border:1px solid #ccc;padding:1px">
+                                                    <div style="width:4px;height:0;border:5px solid #8BC34A;overflow:hidden"></div>
+                                                </div>
+                                            </td>
+                                            <td class="legendLabel">Labs</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    
+
+                </div>
+</div>
+  
+
+
+<div class="card period_view" id="row5">
+    <div class="card-body" style="padding: 9px 20px;padding-top: 0px;">
+
+        <div class="row stats_panel">
+            <h4>PERIOD WISE ATTENDANCE</h4>
+               
+            <div class="col-x8 percent-chart">
+
+                <img src="img/icons/check.png" class="pressed_img" ng-show="ctrl.periods[1].isActive == true"/>
+
+                <div class="easy-pie years_block_chart" data-percent="45"
+                data-easypie-chart ng-click="ctrl.checkUncheckPeriodBox(1)">
+                <div class="percent">45</div>
+                <div class="pie-title">1st Period</div>
+            </div>
+
+        </div>
+
+        <div class="col-x8 percent-chart" >
+
+            <img src="img/icons/check.png" class="pressed_img" ng-show="ctrl.periods[2].isActive == true"/>
+
+            <div class="easy-pie years_block_chart" data-percent="45"
+            data-easypie-chart ng-click="ctrl.checkUncheckPeriodBox(2)">
+            <div class="percent">45</div>
+            <div class="pie-title">2nd Period</div>
+        </div>
+
+        <div class="pressed" ng-if="ctrl.periods[1].isActive == true"></div>
+    </div>
+
+    <div class="col-x8 percent-chart">
+     <div class="easy-pie years_block_chart" data-percent="45"
+     data-easypie-chart ng-click="ctrl.checkUncheckPeriodBox(3)">
+
+     <img src="img/icons/check.png" class="pressed_img" ng-show="ctrl.periods[3].isActive == true"/>
+
+     <div class="percent">45</div>
+     <div class="pie-title">3rd Period</div>
+ </div>
+</div>
+
+<div class="col-x8 percent-chart">
+ <div class="easy-pie years_block_chart" data-percent="45"
+ data-easypie-chart ng-click="ctrl.checkUncheckPeriodBox(4)">
+
+ <img src="img/icons/check.png" class="pressed_img" ng-show="ctrl.periods[4].isActive == true"/>
+
+ <div class="percent">45</div>
+ <div class="pie-title">4rth Period</div>
+</div>
+</div>
+
+<div class="col-x8 percent-chart">
+ <div class="easy-pie years_block_chart" data-percent="45"
+ data-easypie-chart ng-click="ctrl.checkUncheckPeriodBox(5)">
+
+ <img src="img/icons/check.png" class="pressed_img" ng-show="ctrl.periods[5].isActive == true"/>
+
+ <div class="percent">45</div>
+ <div class="pie-title">5th Period</div>
+</div>
+</div>
+
+<div class="col-x8 percent-chart">
+ <div class="easy-pie years_block_chart" data-percent="45"
+ data-easypie-chart ng-click="ctrl.checkUncheckPeriodBox(6)">
+
+ <img src="img/icons/check.png" class="pressed_img" ng-show="ctrl.periods[6].isActive == true"/>
+
+ <div class="percent">45</div>
+ <div class="pie-title">6th Period</div>
+</div>
+</div>
+
+<div class="col-x8 percent-chart">
+ <div class="easy-pie years_block_chart" data-percent="45"
+ data-easypie-chart ng-click="ctrl.checkUncheckPeriodBox(7)">
+
+ <img src="img/icons/check.png" class="pressed_img" ng-show="ctrl.periods[7].isActive == true"/>
+
+ <div class="percent">45</div>
+ <div class="pie-title">7nth Period</div>
+</div>
+</div>
+<div class="col-x8 percent-chart">
+ <div class="easy-pie years_block_chart" data-percent="45"
+ data-easypie-chart ng-click="ctrl.checkUncheckPeriodBox(8)">
+
+ <img src="img/icons/check.png" class="pressed_img" ng-show="ctrl.periods[8].isActive == true"/>
+
+ <div class="percent">45</div>
+ <div class="pie-title">8th Period</div>
+</div>
+</div>
+</div>
+
+
+<div class="row" ng-if="ctrl.hasAnyActivePeriods();" style="padding-top:20px">
+    
+    <div class="col-md-12" style="border-left: 1px solid rgba(0, 150, 136, 0.18);">
+
+        <div class="dropdown pull-right btn-group" data-animation="flipInX,flipOutX">
+
+         <button type="button" class="btn bgm-teal" style="width:auto" disabled="disabled">Select Duration : </button>
+         <button type="button" class="btn bgm-teal" data-toggle="dropdown" style="width:150px">Last 1 Year <i class="caret"></i></button>
+         <ul class="dropdown-menu">
+            <li><a href="">Last Month</a></li>
+            <li><a href="">Last 6 Months</a></li>
+            <li><a href="">Last 1 Year</a></li>
+            <li class="divider"></li>
+            <li><a href="">All time</a></li>
+        </ul>
+    </div>
+
+    <canvas id="myChartOverall" style="width:100%;height:200px"></canvas>
+
+    <script>
+        attenanceDeptWiseComp("myChartOverall");
+    </script>
+
+    <div class="flc-">
+        <table style="font-size:smaller;color:#545454">
+            <tbody>
+                <tr>
+                    <td class="legendColorBox">
+                        <div style="border:1px solid #ccc;padding:1px">
+                            <div style="width:4px;height:0;border:5px solid rgba(151,187,205,1);overflow:hidden"></div>
+                        </div>
+                    </td>
+                    <td class="legendLabel">Overall</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
+</div>
+
+
+</div>
+</div>

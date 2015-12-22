@@ -1,0 +1,362 @@
+
+
+<header id="header" data-ng-include src="'views/includes/header.html'"
+        data-ng-controller="headerCtrl as hctrl"></header>
+
+<section id="main" style=";height:100%">
+    <aside id="sidebar" data-ng-include src="'views/admin/includes/sidebar-left.html'"
+           data-ng-class="{ 'toggled': mactrl.sidebarToggle.left === true }"></aside>
+
+    <section id="content" data-ng-controller="admin_communication as ctrl" style=";height:100%">
+        <div class="container" style="padding-right:45px;height:100%">
+            <div class="card m-b-0 broadcast-card" id="messages-main">
+
+                <div class="z-depth-4 animated flipInX" ng-if="ctrl.isShowTree"
+
+                     style="position:absolute;
+                    					width:100%;
+                    					height:auto;
+                    					text-align:center;
+                    					top:0px;
+                    					left:0px;
+                    					z-index:9999;
+                    					background-color:rgba(255, 255, 255, 0.9);
+                    					">
+
+                    <div class="tree" style="display: inline-block;margin:0px;">
+                        <div
+                                data-angular-treeview="true"
+                                data-tree-id="orgHierarchy"
+                                data-tree-model="treedata"
+                                data-node-id="id"
+                                data-node-label="title"
+                                data-node-children="childNodes"
+                                data-expanded-dept="101"
+                                >
+                        </div>
+
+
+                    </div>
+                    <hr/>
+
+
+                    <button style="margin-right:25px;margin-bottom:20px;padding-left:25px;padding-right:25px;"
+                            class="pull-right btn btn bgm-teal waves-effect ng-binding waves-effect"
+                            ng-click="ctrl.showHideTree();"
+                            >Cancel
+                    </button>
+
+
+                </div>
+
+
+                <div class="ms-menu">
+
+                    <div class="bgm-white text-center communication-controls">
+                        <div class="form-group">
+                            <div class="fg-line">
+                                <input type="text" class="form-control" placeholder="Search All Messages">
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="clearfix"></div>
+
+                    <div class="listview lv-user c-overflow recent-item" style="height:60%;">
+
+                        <div class="lv-item media" ng-repeat="msg in ctrl.recentMessages.broadcast">
+                            <div class="lv-avatar pull-left"
+                                 ng-class="{'bgm-blue':msg.to.type=='Batch','bgm-red':msg.to.type=='Department','bgm-amber':msg.to.type=='Section'}">
+                                {{msg.to.type[0]}}
+                            </div>
+                            <div class="media-body">
+                                <div class="lv-title">{{msg.to.node}} {{msg.to.type}}</div>
+                                <div class="lv-small">{{msg.sentMessage}}</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CREATE MSG-->
+                <div class="ms-body c-overflow" style="height:60%;">
+                    <div class="listview lv-message" >
+                        <div class="lv-header-alt bgm-white">
+                            <div id="ms-menu-trigger">
+                                <div class="line-wrap">
+                                    <div class="line top"></div>
+                                    <div class="line center"></div>
+                                    <div class="line bottom"></div>
+                                </div>
+                            </div>
+
+                            <div class="lvh-label hidden-xs">
+                                <h4>Communication</h4>
+
+                            </div>
+
+                            <ul class="lv-actions actions">
+
+
+                                <li>
+                                    <div class="btn-group no-box-shadow">
+                                        <button type="button" class="btn  btn-icon btn-primary dropdown-toggle waves-effect" data-toggle="dropdown" aria-expanded="false">
+                                            <i class="md md-apps"></i>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Single</a></li>
+                                            <li><a href="#">Group</a></li>
+                                            <li><a href="#" ng-click="ctrl.showHideTree();">Broadcast</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <button class="btn btn-danger btn-icon waves-effect">
+                                        <i class="md md-delete"></i>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="lv-body c-overflow">
+
+                                <div class="lv-item media">
+                                    <div class="lv-avatar pull-left">
+                                        <img src="img/profile-pics/1.jpg" alt="">
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="ms-item">
+                                            Quisque consequat arcu eget odio cursus, ut tempor arcu vestibulum. Etiam ex arcu, porta a urna non, lacinia pellentesque orci. Proin semper sagittis erat, eget condimentum sapien viverra et. Mauris volutpat magna nibh, et condimentum est rutrum a. Nunc sed turpis mi. In eu massa a sem pulvinar lobortis.
+                                        </div>
+                                        <small class="ms-date"><i class="md md-access-time"></i> 20/02/2015 at 09:00</small>
+                                    </div>
+                                </div>
+
+                                <div class="lv-item media right">
+                                    <div class="lv-avatar pull-right">
+                                        <img src="img/profile-pics/8.jpg" alt="">
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="ms-item">
+                                            Mauris volutpat magna nibh, et condimentum est rutrum a. Nunc sed turpis mi. In eu massa a sem pulvinar lobortis.
+                                        </div>
+                                        <small class="ms-date"><i class="md md-access-time"></i> 20/02/2015 at 09:30</small>
+                                    </div>
+                                </div>
+
+                                <div class="lv-item media">
+                                    <div class="lv-avatar pull-left">
+                                        <img src="img/profile-pics/1.jpg" alt="">
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="ms-item">
+                                            Etiam ex arcumentum
+                                        </div>
+                                        <small class="ms-date"><i class="md md-access-time"></i> 20/02/2015 at 09:33</small>
+                                    </div>
+                                </div>
+
+                                <div class="lv-item media right">
+                                    <div class="lv-avatar pull-right">
+                                        <img src="img/profile-pics/8.jpg" alt="">
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="ms-item">
+                                            Etiam nec facilisis lacus. Nulla imperdiet augue ullamcorper dui ullamcorper, eu laoreet sem consectetur. Aenean et ligula risus. Praesent sed posuere sem. Cum sociis natoque penatibus et magnis dis parturient montes,
+                                        </div>
+                                        <small class="ms-date"><i class="md md-access-time"></i> 20/02/2015 at 10:10</small>
+                                    </div>
+                                </div>
+
+                                <div class="lv-item media">
+                                    <div class="lv-avatar pull-left">
+                                        <img src="img/profile-pics/1.jpg" alt="">
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="ms-item">
+                                            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam ac tortor ut elit sodales varius. Mauris id ipsum id mauris malesuada tincidunt. Vestibulum elit massa, pulvinar at sapien sed, luctus vestibulum eros. Etiam finibus tristique ante, vitae rhoncus sapien volutpat eget
+                                        </div>
+                                        <small class="ms-date"><i class="md md-access-time"></i> 20/02/2015 at 10:24</small>
+                                    </div>
+                                </div>
+
+                            <div class="form-group m-20">
+                                <div class="fg-line">
+                                    <textarea class="form-control" rows="4" placeholder="Message"></textarea>
+                                </div>
+                            </div>
+
+                            <button class="m-r-15 m-t-5 p-l-20 p-r-20 pull-right btn btn-primary waves-effect">
+                                    Send
+                            </button>
+
+
+                        </div>
+
+                        <div class="lv-footer ms-reply"  ng-if="false">
+                            <textarea placeholder="Enter Message Here"></textarea>
+
+                            <button><i class="md md-send"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <!-- END CREATE MSG-->
+
+
+                <!-- MSG LIST-->
+                <div class="ms-body"  ng-if="false">
+                    <div class="listview lv-message" >
+                        <div class="lv-header-alt bgm-white">
+                            <div id="ms-menu-trigger">
+                                <div class="line-wrap">
+                                    <div class="line top"></div>
+                                    <div class="line center"></div>
+                                    <div class="line bottom"></div>
+                                </div>
+                            </div>
+
+                            <div class="lvh-label hidden-xs">
+                                <div class="lv-avatar pull-left">
+                                    <img src="img/profile-pics/1.jpg" alt="">
+                                </div>
+                                <span class="c-black">David Parbell</span>
+                            </div>
+
+                            <ul class="lv-actions actions">
+                                <li>
+                                    <a href="">
+                                        <i class="md md-delete"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <i class="md md-check"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <i class="md md-access-time"></i>
+                                    </a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="" data-toggle="dropdown" aria-expanded="true">
+                                        <i class="md md-sort"></i>
+                                    </a>
+
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li>
+                                            <a href="">Latest</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Oldest</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="" data-toggle="dropdown" aria-expanded="true">
+                                        <i class="md md-more-vert"></i>
+                                    </a>
+
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li>
+                                            <a href="">Refresh</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Message Settings</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="lv-body c-overflow" >
+                            <div class="lv-item media">
+                                <div class="lv-avatar pull-left">
+                                    <img src="img/profile-pics/1.jpg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <div class="ms-item">
+                                        Quisque consequat arcu eget odio cursus, ut tempor arcu vestibulum. Etiam ex
+                                        arcu, porta a urna non, lacinia pellentesque orci. Proin semper sagittis erat,
+                                        eget condimentum sapien viverra et. Mauris volutpat magna nibh, et condimentum
+                                        est rutrum a. Nunc sed turpis mi. In eu massa a sem pulvinar lobortis.
+                                    </div>
+                                    <small class="ms-date"><i class="md md-access-time"></i> 20/02/2015 at 09:00</small>
+                                </div>
+                            </div>
+
+                            <div class="lv-item media right">
+                                <div class="lv-avatar pull-right">
+                                    <img src="img/profile-pics/8.jpg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <div class="ms-item">
+                                        Mauris volutpat magna nibh, et condimentum est rutrum a. Nunc sed turpis mi. In
+                                        eu massa a sem pulvinar lobortis.
+                                    </div>
+                                    <small class="ms-date"><i class="md md-access-time"></i> 20/02/2015 at 09:30</small>
+                                </div>
+                            </div>
+
+                            <div class="lv-item media">
+                                <div class="lv-avatar pull-left">
+                                    <img src="img/profile-pics/1.jpg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <div class="ms-item">
+                                        Etiam ex arcumentum
+                                    </div>
+                                    <small class="ms-date"><i class="md md-access-time"></i> 20/02/2015 at 09:33</small>
+                                </div>
+                            </div>
+
+                            <div class="lv-item media right">
+                                <div class="lv-avatar pull-right">
+                                    <img src="img/profile-pics/8.jpg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <div class="ms-item">
+                                        Etiam nec facilisis lacus. Nulla imperdiet augue ullamcorper dui ullamcorper, eu
+                                        laoreet sem consectetur. Aenean et ligula risus. Praesent sed posuere sem. Cum
+                                        sociis natoque penatibus et magnis dis parturient montes,
+                                    </div>
+                                    <small class="ms-date"><i class="md md-access-time"></i> 20/02/2015 at 10:10</small>
+                                </div>
+                            </div>
+
+                            <div class="lv-item media">
+                                <div class="lv-avatar pull-left">
+                                    <img src="img/profile-pics/1.jpg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <div class="ms-item">
+                                        Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                                        mus. Etiam ac tortor ut elit sodales varius. Mauris id ipsum id mauris malesuada
+                                        tincidunt. Vestibulum elit massa, pulvinar at sapien sed, luctus vestibulum
+                                        eros. Etiam finibus tristique ante, vitae rhoncus sapien volutpat eget
+                                    </div>
+                                    <small class="ms-date"><i class="md md-access-time"></i> 20/02/2015 at 10:24</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lv-footer ms-reply">
+                            <textarea placeholder="What's on your mind..."></textarea>
+
+                            <button><i class="md md-send"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <!-- END MSG-LIST-->
+
+            </div>
+
+        </div>
+
+    </section>
+</section>
+
+

@@ -28,7 +28,7 @@ materialAdmin
             // here, we fake authenticating and give a fake user
 
             var loggedinData = {
-                name: 'Rahul Dambre',
+                name: 'Sharath',
                 role:'FACULTY'
             };
             //loggedinData.role.push(this.userName);

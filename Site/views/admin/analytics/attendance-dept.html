@@ -1,0 +1,769 @@
+<div class="card" id="dept_attendance">
+    <div class="card-body" style="padding: 9px 20px;padding-top: 0px;">
+
+        <div class="row stats_panel">
+
+            <h4>{{ctrl.selectedNode.title}} ATTENDANCE</h4>
+
+            <style>
+                /*.mini-charts-item:before{
+                  background: none;
+              }*/
+          </style>
+
+          <div class="col-md-2">
+            <div class="mini-charts-item stats_panel_item">
+                <div class="clearfix">
+                    <div class="chart stats-bar" data-sparkline-bar></div>
+                    <div class="count" style="cursor: pointer;" ng-click="ctrl.showMainGraph = !ctrl.showMainGraph; ">
+                        <medium style="line-height: 56px;">View Graph</medium>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="stats_panel_item">
+                <div class="clearfix">
+                    <div class="count">
+                        <medium>Compared to last month</medium>
+                        <h2><i class="fa fa-arrow-up"></i> 12%</h2>
+                        <small>(Increase)</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="stats_panel_item">
+                <div class="clearfix">
+                    <div class="count">
+                        <medium>Current Sem Attendance</medium>
+                        <h2>78%</h2>
+                        <small>(April-June)</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="stats_panel_item">
+                <div class="clearfix">
+                    <div class="count">
+                        <medium>Current Month Attendance</medium>
+                        <h2>65%</h2>
+                        <small>(June)</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="stats_panel_item">
+                <div class="clearfix">
+                    <div class="count">
+                        <medium>Last Month Attendance</medium>
+                        <h2> 76%</h2>
+                        <small>(May)</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row" ng-if="ctrl.showMainGraph" style="padding-top:20px">
+
+        <div class="col-md-4">
+            <h5 style="margin-top: 3px;margin-bottom: 3px;">Period : April - October</h5>
+            <small style="font-size: 12px;">Whole college's current sem's monthly attendance</small>
+            <br/>
+            <table class="table condensed_table_4">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Month</th>
+                        <th>Attendance %</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>April</td>
+                        <td>58 %</td>
+
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>May</td>
+                        <td>59 %</td>
+
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>June</td>
+                        <td>68 %</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>July</td>
+                        <td> -</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>August</td>
+                        <td> -</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>September</td>
+                        <td> -</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="col-md-8" style="border-left: 1px solid rgba(0, 150, 136, 0.18);">
+            <canvas id="myChartOverall" style="width:100%;height:200px"></canvas>
+
+            <script>
+                lineChartMonthly("myChartOverall");
+            </script>
+
+            <div class="flc-">
+                <table style="font-size:smaller;color:#545454">
+                    <tbody>
+                        <tr>
+                            <td class="legendColorBox">
+                                <div style="border:1px solid #ccc;padding:1px">
+                                    <div style="width:4px;height:0;border:5px solid rgba(151,187,205,1);overflow:hidden"></div>
+                                </div>
+                            </td>
+                            <td class="legendLabel">Overall</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+
+
+    </div>
+    <div class="row" ng-if="ctrl.showMainGraph"
+    style="height:30px;background-color:rgba(234, 231, 239, 0.69);text-align:center;line-height:31px;position:relative;bottom: -9px;margin-left: -20px;   margin-right: -20px">
+    <a style="cursor:pointer;" ng-click="ctrl.showMainGraph = false;">CLOSE</a>
+</div>
+</div>
+</div>
+
+<div class="row">
+
+    <div class="col-md-9 p-r-5">
+        <div class="row">
+
+            <div class="col-md-6 p-r-5 p-b-5">
+                <div class="card att_block m-b-5">
+
+                    <div class="card-header">
+                        <h2>FIRST YEAR</h2>
+                        <hr/>
+
+                        <ul class="actions">
+                            <li class="dropdown">
+                                <a href="" data-toggle="dropdown">
+                                    <i class="md md-more-vert"></i>
+                                </a>
+
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li>
+                                        <a href="">Add to Compare</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Open Detailed View</a>
+
+                                    </ul>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                        <div class="card-body card-padding">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <table class="table table-striped condensed_table_8">
+                                        <tbody>
+
+                                            <tr>
+                                                <th class="p-l-5">Current Month Attendancee</th>
+                                                <th class="p-r-10">78 %</th>
+                                            </tr>
+                                            <tr>
+                                                <th  class="p-l-5">Last Month Attendancee</th>
+                                                <th class="p-r-10">62 %</th>
+                                            </tr>
+                                            <tr>
+                                                <th  class="p-l-5">Compared to Last Month</th>
+                                                <th class="p-r-10"><i class="fa fa-arrow-up"></i> 15 %</th>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                <div class="col-md-3 percent-chart p-r-5 p-l-5">
+                                    <div class="easy-pie years_block_chart" data-percent="45"
+                                    data-easypie-chart>
+                                    <div class="percent">45</div>
+                                    <div class="pie-title">Current Sem Attendance</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6 p-l-5 p-b-5">
+                <div class="card att_block m-b-5">
+
+                    <div class="card-header">
+                        <h2>SECOND YEAR</h2>
+                        <hr/>
+
+                        <ul class="actions">
+                            <li class="dropdown">
+                                <a href="" data-toggle="dropdown">
+                                    <i class="md md-more-vert"></i>
+                                </a>
+
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li>
+                                        <a href="">Add to Compare</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Open Detailed View</a>
+
+                                    </ul>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                        <div class="card-body card-padding">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <table class="table table-striped condensed_table_8">
+                                        <tbody>
+
+                                            <tr>
+                                                <th class="p-l-5">Current Month Attendancee</th>
+                                                <th class="p-r-10">78 %</th>
+                                            </tr>
+                                            <tr>
+                                                <th  class="p-l-5">Last Month Attendancee</th>
+                                                <th class="p-r-10">62 %</th>
+                                            </tr>
+                                            <tr>
+                                                <th  class="p-l-5">Compared to Last Month</th>
+                                                <th class="p-r-10"><i class="fa fa-arrow-up"></i> 15 %</th>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                <div class="col-md-3 percent-chart p-r-5 p-l-5">
+                                    <div class="easy-pie years_block_chart" data-percent="45"
+                                    data-easypie-chart>
+                                    <div class="percent">45</div>
+                                    <div class="pie-title">Current Sem Attendance</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-6 p-r-5 p-t-5">
+                <div class="card att_block m-b-5">
+
+                    <div class="card-header">
+                        <h2>THIRD YEAR</h2>
+                        <hr/>
+
+                        <ul class="actions">
+                            <li class="dropdown">
+                                <a href="" data-toggle="dropdown">
+                                    <i class="md md-more-vert"></i>
+                                </a>
+
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li>
+                                        <a href="">Add to Compare</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Open Detailed View</a>
+
+                                    </ul>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                        <div class="card-body card-padding">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <table class="table table-striped condensed_table_8">
+                                        <tbody>
+
+                                            <tr>
+                                                <th class="p-l-5">Current Month Attendancee</th>
+                                                <th class="p-r-10">78 %</th>
+                                            </tr>
+                                            <tr>
+                                                <th  class="p-l-5">Last Month Attendancee</th>
+                                                <th class="p-r-10">62 %</th>
+                                            </tr>
+                                            <tr>
+                                                <th  class="p-l-5">Compared to Last Month</th>
+                                                <th class="p-r-10"><i class="fa fa-arrow-up"></i> 15 %</th>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                <div class="col-md-3 percent-chart p-r-5 p-l-5">
+                                    <div class="easy-pie years_block_chart" data-percent="45"
+                                    data-easypie-chart>
+                                    <div class="percent">45</div>
+                                    <div class="pie-title">Current Sem Attendance</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-6 p-l-5 p-t-5">
+                <div class="card att_block m-b-5">
+
+                    <div class="card-header">
+                        <h2>FOURTH YEAR</h2>
+                        <hr/>
+
+                        <ul class="actions">
+                            <li class="dropdown">
+                                <a href="" data-toggle="dropdown">
+                                    <i class="md md-more-vert"></i>
+                                </a>
+
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li>
+                                        <a href="">Add to Compare</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Open Detailed View</a>
+
+                                    </ul>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                        <div class="card-body card-padding">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <table class="table table-striped condensed_table_8">
+                                        <tbody>
+
+                                            <tr>
+                                                <th class="p-l-5">Current Month Attendancee</th>
+                                                <th class="p-r-10">78 %</th>
+                                            </tr>
+                                            <tr>
+                                                <th  class="p-l-5">Last Month Attendancee</th>
+                                                <th class="p-r-10">62 %</th>
+                                            </tr>
+                                            <tr>
+                                                <th  class="p-l-5">Compared to Last Month</th>
+                                                <th class="p-r-10"><i class="fa fa-arrow-up"></i> 15 %</th>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                <div class="col-md-3 percent-chart p-r-5 p-l-5">
+                                    <div class="easy-pie years_block_chart" data-percent="45"
+                                    data-easypie-chart>
+                                    <div class="percent">45</div>
+                                    <div class="pie-title">Current Sem Attendance</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+        
+    </div>
+
+    <div class="col-md-3">
+        <div class="card table_card_design_1">
+            <div class="">
+                <ul class="tab-nav tn-justified" style="background-color:#5D6BB3">
+                    <li class="btn-wave"  data-ng-class="{'active':ctrl.t == 'batches'}" >
+                        <a data-ng-click="ctrl.t = 'batches'" style="background-color:#5D6BB3">
+                            Batches
+                        </a>
+                    </li>
+                    <li class="btn-wave" data-ng-class="{'active':ctrl.t == 'faculties'}" >
+                        <a data-ng-click="ctrl.t = 'faculties'" style="background-color:#5D6BB3">
+                            Faculties
+                        </a>
+                    </li>
+                </ul>
+
+
+            </div>
+
+            <div ng-show="ctrl.t == 'batches'" class="card-body table-responsive" tabindex="0" style="overflow: hidden; outline: none;">
+
+
+                <table class="table" align="center" >
+                    <thead>
+                      <tr>
+                        <th style="width:30%">Code</th>
+                        <th style="width:25%">Year</th>
+                        <th style="width:45%" align="center" >Attendance %</th>
+                    </tr>
+                </thead>
+            </table>
+            <div  style="height:346px;display:block" class="c-overflow">  
+                <table class="table" align="center">
+
+                    <tbody>
+
+                        <tr>
+                            <td style="width:30%">EC1010</td>
+                            <td style="width:25%">First</td>
+                            <td style="width:45%">78%</td>
+
+                        </tr>
+
+                        <tr>
+                            <td>EC1010</td>
+                            <td>First</td>
+                            <td>78%</td>
+
+                        </tr>
+                        <tr>
+                            <td>EC1010</td>
+                            <td>First</td>
+                            <td>78%</td>
+
+                        </tr>
+                        <tr>
+                            <td>EC1010</td>
+                            <td>First</td>
+                            <td>78%</td>
+
+                        </tr>
+                        <tr>
+                            <td>EC1010</td>
+                            <td>First</td>
+                            <td>78%</td>
+
+                        </tr>
+                        <tr>
+                            <td>EC1010</td>
+                            <td>First</td>
+                            <td>78%</td>
+
+                        </tr>
+                        <tr>
+                            <td>EC1010</td>
+                            <td>First</td>
+                            <td>78%</td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <div ng-show="ctrl.t == 'faculties'" class="card-body table-responsive " tabindex="0" style="overflow: hidden; outline: none;">
+
+            <table class="table" align="center" >
+                <thead>
+                  <tr>
+                    <th style="width:55%">Name</th>
+                    <th  style="width:45%" align="center">Attendance %</th>
+                </tr>
+            </thead>
+        </table>
+        <div  style="height:346px;display:block" class="c-overflow">  
+            <table class="table" align="center" >                            
+                <tbody>
+
+                    <tr>
+                        <td  style="width:55%">Dwarkanath Uttakar</td>
+                        <td  style="width:45%">78%</td>                                
+                    </tr>
+
+                    <tr>
+                        <td>Dwarkanath Uttakar</td>
+                        <td>78%</td>                                
+                    </tr>
+
+                    <tr>
+                        <td>Dwarkanath Uttakar</td>
+                        <td>78%</td>                                
+                    </tr>
+
+                    <tr>
+                        <td>Dwarkanath Uttakar</td>
+                        <td>78%</td>                                
+                    </tr>
+
+                    <tr>
+                        <td>Dwarkanath Uttakar</td>
+                        <td>78%</td>                                
+                    </tr>
+
+                    <tr>
+                        <td>Dwarkanath Uttakar</td>
+                        <td>78%</td>                                
+                    </tr>
+
+                    <tr>
+                        <td>Dwarkanath Uttakar</td>
+                        <td>78%</td>                                
+                    </tr>
+
+                    <tr>
+                        <td>Dwarkanath Uttakar</td>
+                        <td>78%</td>                                
+                    </tr>
+
+                    <tr>
+                        <td>Dwarkanath Uttakar</td>
+                        <td>78%</td>                                
+                    </tr>
+                    <tr>
+                        <td>Dwarkanath Uttakar</td>
+                        <td>78%</td>                                
+                    </tr>
+
+                    <tr>
+                        <td>Dwarkanath Uttakar</td>
+                        <td>78%</td>                                
+                    </tr>
+
+                    <tr>
+                        <td>Dwarkanath Uttakar</td>
+                        <td>78%</td>                                
+                    </tr>
+
+                    <tr>
+                        <td>Dwarkanath Uttakar</td>
+                        <td>78%</td>                                
+                    </tr>
+
+                    <tr>
+                        <td>Dwarkanath Uttakar</td>
+                        <td>78%</td>                                
+                    </tr>
+
+
+                    <tr>
+                        <td>Dwarkanath Uttakar</td>
+                        <td>78%</td>                                
+                    </tr>
+
+                    <tr>
+                        <td>Dwarkanath Uttakar</td>
+                        <td>78%</td>                                
+                    </tr>
+
+                    <tr>
+                        <td>Dwarkanath Uttakar</td>
+                        <td>78%</td>                                
+                    </tr>
+
+                    <tr>
+                        <td>Dwarkanath Uttakar</td>
+                        <td>78%</td>                                
+                    </tr>
+
+                    <tr>
+                        <td>Dwarkanath Uttakar</td>
+                        <td>78%</td>                                
+                    </tr>
+
+
+
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+
+</div>
+
+
+<div class="card period_view" id="periods">
+    <div class="card-body" style="padding: 9px 20px;padding-top: 0px;">
+
+        <div class="row stats_panel">
+            <h4>PERIOD WISE ATTENDANCE</h4>
+
+            <div class="col-x8 percent-chart">
+
+                <img src="img/icons/check.png" class="pressed_img" ng-show="ctrl.periods[1].isActive == true"/>
+
+                <div class="easy-pie years_block_chart" data-percent="45"
+                data-easypie-chart ng-click="ctrl.checkUncheckPeriodBox(1)">
+                <div class="percent">45</div>
+                <div class="pie-title">1st Period</div>
+            </div>
+
+        </div>
+
+        <div class="col-x8 percent-chart" >
+
+            <img src="img/icons/check.png" class="pressed_img" ng-show="ctrl.periods[2].isActive == true"/>
+
+            <div class="easy-pie years_block_chart" data-percent="45"
+            data-easypie-chart ng-click="ctrl.checkUncheckPeriodBox(2)">
+            <div class="percent">45</div>
+            <div class="pie-title">2nd Period</div>
+        </div>
+
+        <div class="pressed" ng-if="ctrl.periods[1].isActive == true"></div>
+    </div>
+
+    <div class="col-x8 percent-chart">
+     <div class="easy-pie years_block_chart" data-percent="45"
+     data-easypie-chart ng-click="ctrl.checkUncheckPeriodBox(3)">
+
+     <img src="img/icons/check.png" class="pressed_img" ng-show="ctrl.periods[3].isActive == true"/>
+
+     <div class="percent">45</div>
+     <div class="pie-title">3rd Period</div>
+ </div>
+</div>
+
+<div class="col-x8 percent-chart">
+ <div class="easy-pie years_block_chart" data-percent="45"
+ data-easypie-chart ng-click="ctrl.checkUncheckPeriodBox(4)">
+
+ <img src="img/icons/check.png" class="pressed_img" ng-show="ctrl.periods[4].isActive == true"/>
+
+ <div class="percent">45</div>
+ <div class="pie-title">4rth Period</div>
+</div>
+</div>
+
+<div class="col-x8 percent-chart">
+ <div class="easy-pie years_block_chart" data-percent="45"
+ data-easypie-chart ng-click="ctrl.checkUncheckPeriodBox(5)">
+
+ <img src="img/icons/check.png" class="pressed_img" ng-show="ctrl.periods[5].isActive == true"/>
+
+ <div class="percent">45</div>
+ <div class="pie-title">5th Period</div>
+</div>
+</div>
+
+<div class="col-x8 percent-chart">
+ <div class="easy-pie years_block_chart" data-percent="45"
+ data-easypie-chart ng-click="ctrl.checkUncheckPeriodBox(6)">
+
+ <img src="img/icons/check.png" class="pressed_img" ng-show="ctrl.periods[6].isActive == true"/>
+
+ <div class="percent">45</div>
+ <div class="pie-title">6th Period</div>
+</div>
+</div>
+
+<div class="col-x8 percent-chart">
+ <div class="easy-pie years_block_chart" data-percent="45"
+ data-easypie-chart ng-click="ctrl.checkUncheckPeriodBox(7)">
+
+ <img src="img/icons/check.png" class="pressed_img" ng-show="ctrl.periods[7].isActive == true"/>
+
+ <div class="percent">45</div>
+ <div class="pie-title">7nth Period</div>
+</div>
+</div>
+<div class="col-x8 percent-chart">
+ <div class="easy-pie years_block_chart" data-percent="45"
+ data-easypie-chart ng-click="ctrl.checkUncheckPeriodBox(8)">
+
+ <img src="img/icons/check.png" class="pressed_img" ng-show="ctrl.periods[8].isActive == true"/>
+
+ <div class="percent">45</div>
+ <div class="pie-title">8th Period</div>
+</div>
+</div>
+</div>
+
+
+<div class="row" ng-if="ctrl.hasAnyActivePeriods();" style="padding-top:20px">
+    
+    <div class="col-md-12" style="border-left: 1px solid rgba(0, 150, 136, 0.18);">
+
+        <div class="dropdown pull-right btn-group" data-animation="flipInX,flipOutX">
+
+         <button type="button" class="btn bgm-teal" style="width:auto" disabled="disabled">Select Duration : </button>
+         <button type="button" class="btn bgm-teal" data-toggle="dropdown" style="width:150px">Last 1 Year <i class="caret"></i></button>
+         <ul class="dropdown-menu">
+            <li><a href="">Last Month</a></li>
+            <li><a href="">Last 6 Months</a></li>
+            <li><a href="">Last 1 Year</a></li>
+            <li class="divider"></li>
+            <li><a href="">All time</a></li>
+        </ul>
+    </div>
+
+    <canvas id="myChartOverall" style="width:100%;height:200px"></canvas>
+
+    <script>
+        attenanceDeptWiseComp("myChartOverall");
+    </script>
+
+    <div class="flc-">
+        <table style="font-size:smaller;color:#545454">
+            <tbody>
+                <tr>
+                    <td class="legendColorBox">
+                        <div style="border:1px solid #ccc;padding:1px">
+                            <div style="width:4px;height:0;border:5px solid rgba(151,187,205,1);overflow:hidden"></div>
+                        </div>
+                    </td>
+                    <td class="legendLabel">Overall</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
+</div>
+
+
+</div>
+</div>

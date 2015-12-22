@@ -1,0 +1,28 @@
+<!-- ORGANIZATION LEVEL -->
+<div ng-if="ctrl.selectedNode == null || ctrl.selectedNode.type=='organization' ">
+
+    <div ng-include src="'views/admin/analytics/attendance-org.html'"></div>
+
+</div>
+
+<!-- DEPARTMENT LEVEL -->
+<div class="dept_view" ng-if="ctrl.selectedNode != null && ctrl.selectedNode.type=='department' ">
+
+    <div ng-include src="'views/admin/analytics/attendance-dept.html'"></div>
+
+</div>
+
+<!-- YEAR LEVEL -->
+<div ng-if="ctrl.selectedNode != null && ctrl.selectedNode.type=='year' ">
+
+    <div ng-include src="'views/admin/analytics/attendance-year.html'"></div>
+
+</div>
+
+
+<!-- YEAR LEVEL -->
+<div ng-if="ctrl.selectedNode != null && ctrl.selectedNode.type=='batch' ">
+
+    <div ng-include src="'views/admin/analytics/attendance-batch.html'"></div>
+
+</div>

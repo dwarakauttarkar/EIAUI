@@ -1,0 +1,447 @@
+<div class="card">
+    <div class="card-body" style="padding: 9px 20px;padding-top: 0px;">
+
+        <div class="row stats_panel">
+
+            <h4>COLLEGE WIDE ATTENDANCE</h4>
+
+            <style>
+                /*.mini-charts-item:before{
+                  background: none;
+                }*/
+            </style>
+
+            <div class="col-md-2">
+                <div class="mini-charts-item stats_panel_item">
+                    <div class="clearfix">
+                        <div class="chart stats-bar" data-sparkline-bar></div>
+                        <div class="count" style="cursor: pointer;" ng-click="ctrl.showMainGraph = !ctrl.showMainGraph">
+                            <medium style="line-height: 56px;">View Graph</medium>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="stats_panel_item">
+                    <div class="clearfix">
+                        <div class="count">
+                            <medium>Current Sem Attendance</medium>
+                            <h2>78%</h2>
+                            <small>(April-June)</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="stats_panel_item">
+                    <div class="clearfix">
+                        <div class="count">
+                            <medium>Current Month Attendance</medium>
+                            <h2>65%</h2>
+                            <small>(June)</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="stats_panel_item">
+                    <div class="clearfix">
+                        <div class="count">
+                            <medium>Last Month Attendance</medium>
+                            <h2> 76%</h2>
+                            <small>(May)</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-2">
+                <div class="stats_panel_item">
+                    <div class="clearfix">
+                        <div class="count">
+                            <medium>Compared to last month</medium>
+                            <h2><i class="fa fa-arrow-up"></i> 12%</h2>
+                            <small>(Increase)</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+
+        </div>
+
+        <div class="row" ng-if="ctrl.showMainGraph" style="padding-top:20px">
+
+            <div class="col-md-4">
+                <h5 style="margin-top: 3px;margin-bottom: 3px;">Period : April - October</h5>
+                <small style="font-size: 12px;">Whole college's current sem's monthly attendance</small>
+                <br/>
+                <table class="table condensed_table_4">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Month</th>
+                        <th>Attendance %</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>April</td>
+                        <td>58 %</td>
+
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>May</td>
+                        <td>59 %</td>
+
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>June</td>
+                        <td>68 %</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>July</td>
+                        <td> -</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>August</td>
+                        <td> -</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>September</td>
+                        <td> -</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+            <div class="col-md-8" style="border-left: 1px solid rgba(0, 150, 136, 0.18);">
+                <canvas id="myChartOverall" style="width:100%;height:200px"></canvas>
+
+                <script>
+                    lineChartMonthly("myChartOverall");
+                </script>
+
+                <div class="flc-">
+                    <table style="font-size:smaller;color:#545454">
+                        <tbody>
+                        <tr>
+                            <td class="legendColorBox">
+                                <div style="border:1px solid #ccc;padding:1px">
+                                    <div style="width:4px;height:0;border:5px solid rgba(151,187,205,1);overflow:hidden"></div>
+                                </div>
+                            </td>
+                            <td class="legendLabel">Overall</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+
+
+        </div>
+        <div class="row" ng-if="ctrl.showMainGraph"
+             style="height:30px;background-color:rgba(234, 231, 239, 0.69);text-align:center;line-height:31px;position:relative;bottom: -9px;margin-left: -20px;   margin-right: -20px">
+            <a style="cursor:pointer;" ng-click="ctrl.showMainGraph = false;">CLOSE</a>
+        </div>
+
+
+    </div>
+</div>
+
+
+<div class="row">
+
+    <div class="col-md-6">
+        <div class="card att_block">
+
+            <div class="card-header">
+                <h2>ECE DEPARTMENT</h2>
+                <hr/>
+
+                <ul class="actions">
+                    <li class="dropdown">
+                        <a href="" data-toggle="dropdown">
+                            <i class="md md-more-vert"></i>
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li>
+                                <a href="">Add to Compare</a>
+                            </li>
+                            <li>
+                                <a href="">Open Detailed View</a>
+
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="card-body card-padding">
+                <div class="row">
+                    <div class="col-md-8">
+                        <table class="table table-striped condensed_table_8">
+                            <tbody>
+
+                            <tr>
+                                <th>Current Month Attendancee</th>
+                                <th>78 %</th>
+                            </tr>
+                            <tr>
+                                <th>Last Month Attendancee</th>
+                                <th>62 %</th>
+                            </tr>
+                            <tr>
+                                <th>Compared to Last Month</th>
+                                <th><i class="fa fa-arrow-up"></i> 15 %</th>
+                            </tr>
+                            <tr>
+                                <th>Batch with Highest Attendance</th>
+                                <th>ECE0920</th>
+                            </tr>
+                            <tr>
+                                <th>Batch with Lowest Attendance</th>
+                                <th>ECE0945</th>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <div class="col-md-4 percent-chart">
+                        <div class="easy-pie chart-block-amber" data-percent="45"
+                             data-easypie-chart>
+                            <div class="percent">45</div>
+                            <div class="pie-title">Current Sem Attendance</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card att_block">
+
+            <div class="card-header">
+                <h2>ECE DEPARTMENT</h2>
+                <hr/>
+
+                <ul class="actions">
+                    <li class="dropdown">
+                        <a href="" data-toggle="dropdown">
+                            <i class="md md-more-vert"></i>
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li>
+                                <a href="">Add to Compare</a>
+                            </li>
+                            <li>
+                                <a href="">Open Detailed View</a>
+
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="card-body card-padding">
+                <div class="row">
+                    <div class="col-md-8">
+                        <table class="table table-striped condensed_table_8">
+                            <tbody>
+
+                            <tr>
+                                <th>Current Month Attendancee</th>
+                                <th>78 %</th>
+                            </tr>
+                            <tr>
+                                <th>Last Month Attendancee</th>
+                                <th>62 %</th>
+                            </tr>
+                            <tr>
+                                <th>Compared to Last Month</th>
+                                <th><i class="fa fa-arrow-up"></i> 15 %</th>
+                            </tr>
+                            <tr>
+                                <th>Batch with Highest Attendance</th>
+                                <th>ECE0920</th>
+                            </tr>
+                            <tr>
+                                <th>Batch with Lowest Attendance</th>
+                                <th>ECE0945</th>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <div class="col-md-4 percent-chart">
+                        <div class="easy-pie chart-block-amber" data-percent="45"
+                             data-easypie-chart>
+                            <div class="percent">45</div>
+                            <div class="pie-title">Current Sem Attendance</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="col-md-6">
+        <div class="card att_block">
+
+            <div class="card-header">
+                <h2>ECE DEPARTMENT</h2>
+                <hr/>
+
+                <ul class="actions">
+                    <li class="dropdown">
+                        <a href="" data-toggle="dropdown">
+                            <i class="md md-more-vert"></i>
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li>
+                                <a href="">Add to Compare</a>
+                            </li>
+                            <li>
+                                <a href="">Open Detailed View</a>
+
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="card-body card-padding">
+                <div class="row">
+                    <div class="col-md-8">
+                        <table class="table table-striped condensed_table_8">
+                            <tbody>
+
+                            <tr>
+                                <th>Current Month Attendancee</th>
+                                <th>78 %</th>
+                            </tr>
+                            <tr>
+                                <th>Last Month Attendancee</th>
+                                <th>62 %</th>
+                            </tr>
+                            <tr>
+                                <th>Compared to Last Month</th>
+                                <th><i class="fa fa-arrow-up"></i> 15 %</th>
+                            </tr>
+                            <tr>
+                                <th>Batch with Highest Attendance</th>
+                                <th>ECE0920</th>
+                            </tr>
+                            <tr>
+                                <th>Batch with Lowest Attendance</th>
+                                <th>ECE0945</th>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <div class="col-md-4 percent-chart">
+                        <div class="easy-pie chart-block-amber" data-percent="45"
+                             data-easypie-chart>
+                            <div class="percent">45</div>
+                            <div class="pie-title">Current Sem Attendance</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card att_block">
+
+            <div class="card-header">
+                <h2>ECE DEPARTMENT</h2>
+                <hr/>
+
+                <ul class="actions">
+                    <li class="dropdown">
+                        <a href="" data-toggle="dropdown">
+                            <i class="md md-more-vert"></i>
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li>
+                                <a href="">Add to Compare</a>
+                            </li>
+                            <li>
+                                <a href="">Open Detailed View</a>
+
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="card-body card-padding">
+                <div class="row">
+                    <div class="col-md-8">
+                        <table class="table table-striped condensed_table_8">
+                            <tbody>
+
+                            <tr>
+                                <th>Current Month Attendancee</th>
+                                <th>78 %</th>
+                            </tr>
+                            <tr>
+                                <th>Last Month Attendancee</th>
+                                <th>62 %</th>
+                            </tr>
+                            <tr>
+                                <th>Compared to Last Month</th>
+                                <th><i class="fa fa-arrow-up"></i> 15 %</th>
+                            </tr>
+                            <tr>
+                                <th>Batch with Highest Attendance</th>
+                                <th>ECE0920</th>
+                            </tr>
+                            <tr>
+                                <th>Batch with Lowest Attendance</th>
+                                <th>ECE0945</th>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <div class="col-md-4 percent-chart">
+                        <div class="easy-pie chart-block-amber" data-percent="45"
+                             data-easypie-chart>
+                            <div class="percent">45</div>
+                            <div class="pie-title">Current Sem Attendance</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+						

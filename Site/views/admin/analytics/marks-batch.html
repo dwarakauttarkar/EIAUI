@@ -1,0 +1,606 @@
+
+
+<div class="sn-container">
+  <ul>
+    <li>
+        <button class="btn btn-default btn-icon waves-effect" ng-click="ctrl.prevRow()"><i class="md md-keyboard-arrow-up"></i></button>
+    </li>
+    <li>
+        <button class="btn btn-default btn-icon waves-effect"  ng-click="ctrl.nextRow()"><i class="md md-keyboard-arrow-down"></i></button>
+    </li>
+
+</ul>
+</div>
+
+
+
+
+<div class="card" id="dept_attendance"  style="margin-bottom:15px">
+
+    <div class="card-body" style="padding: 9px 20px;padding-top: 0px;">
+
+        <div class="row stats_panel">
+
+            <h4>{{ctrl.selectedNode.title}} Marks</h4>
+
+            <style>
+             .mini-charts-item:before {
+                width: 144px;
+            }
+            .mini-charts-item1:before {
+                width: 113px;
+            }
+
+
+        </style>
+
+
+        <div class="col-md-3">
+            <div class="stats_panel_item">
+                <div class="clearfix">
+                    <div class="count">
+                        <medium>Oveall CGPA Average</medium>
+                        <h2>7.85</h2>
+                        <small>(Upto 4th Sem)</small>
+                    </div>                   
+                </div>
+            </div>
+        </div>
+
+        <div ng-if="true" class="col-md-3">
+            <div class="stats_panel_item">
+                <div class="clearfix">
+                    <div class="count">
+                        <medium>Last Sem CGPA Average</medium>
+                        <h2>8.6</h2>
+                        <small>(4th Sem)</small>
+                    </div>                   
+                </div>
+            </div>
+        </div>
+
+        <div ng-if="true" class="col-md-3">
+            <div class="stats_panel_item">
+                <div class="clearfix">
+                    <div class="count">
+                        <medium>Current Sem Internal %</medium>
+                        <h2>65%</h2>
+                        <small>(Average of 1st and 2nd Internal)</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style>
+            .pagination > li > a, .pagination > li > span {
+                border-radius: 50% !important;
+                padding: 0;
+                width: 50px;
+                height: 50px;
+                line-height: 46px;
+                text-align: center;
+                font-size: 20px;
+                z-index: 1;
+                position: relative;
+            }
+        </style>
+
+        <script type="text/ng-template" id="popover">
+            <div class="popover fade bottom in" role="tooltip"  style="display: block;">
+                <div class="arrow" style="left: 50%;"></div>
+                <div class="popover-content" style="width:250px;text-align:center">
+                   <ul class="pagination">
+                    <li style="margin-bottom:10px;"
+                    ng-repeat="sem in ctrl.semesters.list"
+                    ng-class="{'active':ctrl.semesters.selected.no == sem.no, 'disabled':sem.disabled}"
+                    >
+                    <a ng-click="ctrl.setSem(sem);hidePopover()">{{sem.no}}</a>
+                </li> 
+
+                <li style="                                    
+                font-size: 15px;
+                color: #7e7e7e;
+                background-color: #e2e2e2;
+                border: 1px solid #ffffff;
+                border-radius: 10px;"                                
+                ng-class="{'active':ctrl.semesters.selected == 'all'}"
+                >
+                <a ng-click="ctrl.setSem('all');hidePopover()" 
+                style="display: block;
+                border-radius: 5px !important;
+                width: 200px;
+                height: 40px;
+                line-height: 40px;">Overall</a>
+            </li> 
+
+        </ul>
+    </div>
+</div>
+</script>
+
+
+
+<div ng-if="true" class="col-md-3">
+
+    <div 
+    class="mini-charts-item mini-charts-item1 stats_panel_item" 
+    style="cursor:pointer" 
+    href='#'
+    ns-popover
+    ns-popover-template="popover"
+    ns-popover-trigger="click"
+    ns-popover-placement="bottom|left"
+
+    >
+    <script>
+                     /* $('.mini-charts-item1').popover({ 
+                        html : true,
+                        content: function() {
+                          return $('#popover_content_wrapper').html();
+                        }
+                      });
+*/ 
+</script>
+
+<div class="clearfix">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="count" style="
+            color: white;
+            line-height: 56px;
+            margin-left: 10px;
+            padding-left: 10px;                                   
+            margin-bottom: 12px;
+            display: inline-block;
+            ">
+            <div  ng-if="ctrl.semesters.selected != 'all'">
+
+                <span style="font-size: 35px;">
+                 {{ctrl.semesters.selected.no}}
+             </span>
+             <span style="font-size:21px">
+                Sem
+            </span>
+            <span 
+            style="    position: absolute;
+            top: -6px;
+            font-size: 13px;
+            color: white;
+            margin-left: 19px;
+            " >
+            {{ctrl.semesters.selected.subscript}}
+        </span>
+    </div>
+
+    <span style="font-size: 22px;" ng-if="ctrl.semesters.selected == 'all'">
+     Overall
+ </span>
+
+</div>
+</div>
+<div class="col-md-6" style="padding-left:0px">
+ <div class="count" style="display:inline-block;padding-left:0px;margin-left:-10px">
+    <medium style="line-height: 56px;font-size:18px;">Select Semester</medium>
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+</div>
+</div>
+</div>
+
+
+</div>
+</div>
+
+</div>
+</div>
+
+
+
+<div ng-if="ctrl.semesters.selected == 'all'">
+    <div class="card">
+        <div class="card-header p-b-0">
+            <h2>Overall Track Record</h2>
+            <hr/>
+        </div>
+        <div class="card-body card-padding p-t-5">
+            <div class="row" style="">
+
+                <div class="col-md-4">                 
+
+                    <table class="table condensed_table_4">
+                        <thead>
+                            <tr>
+                                <th>Sem #</th>
+                                <th>External CGPA Avg</th>
+                                <th>Internal Avg %</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>6.5</td>
+                                <td>78 %</td>
+
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>6.8</td>
+                                <td>84 %</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>7.8</td>
+                                <td>89 %</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>7.9</td>
+                                <td>78 %</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td> -</td>
+                                <td> -</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td> -</td>
+                                <td> -</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td> -</td>
+                                <td> -</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td> -</td>
+                                <td> -</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <div class="col-md-8" style="border-left: 1px solid rgba(0, 150, 136, 0.18);padding-top:15px">
+
+                    <div ng-if="ctrl.sem_vise_marks == 'cgpa'">
+                       <canvas id="sem_vise_cgpa" style="width:90%;height:170px;padding-top:10px">
+                       </canvas>
+
+                       <script>
+                        sem_vise("sem_vise_cgpa",true);
+                    </script>
+                </div>
+                <div ng-if="ctrl.sem_vise_marks == 'marks'">
+                   <canvas id="sem_vise_cgpa" style="width:90%;height:170px;padding-top:10px">
+                   </canvas>
+
+                   <script>
+                    sem_vise("sem_vise_cgpa",false,'#8BC34A');
+                </script>
+            </div>
+
+            <div class="flc-">
+                <table style="font-size:15px;color:#545454">
+                    <tbody>
+                        <tr>
+                            <td>
+
+                             <label class="radio radio-inline m-r-20 radiocolor1">
+                                <input type="radio" name="inlineRadioOptions" value="cgpa" ng-model="ctrl.sem_vise_marks">
+                                <i class="input-helper"></i>  
+                                External Average CGAP
+                            </label>
+
+                        </td>
+                        <td>
+
+                           <label class="radio radio-inline m-r-20 radiocolor2">
+                            <input type="radio" name="inlineRadioOptions" value="marks" ng-model="ctrl.sem_vise_marks">
+                            <i class="input-helper"></i>  
+                            Internal Average %
+                        </label>
+
+                    </td>                          
+                </tr>
+            </tbody>
+        </table>
+
+
+
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-header p-b-0">
+        <h2>Students Track Record</h2>
+        <hr/>
+    </div>
+    <div class="card-body card-padding p-t-0">
+
+        <div class="form-group p-b-0">
+            <div class="fg-line">
+                <input type="text" class="form-control input-sm" placeholder="Search Student" />
+            </div>
+        </div>
+
+        <table class="table" style="table-layout: fixed;width:100%">
+            <thead>
+                <tr>
+                    <th width="10%">Code</th>
+                    <th width="15%">Name</th>
+                    <th width="10%">Overall CGPA</th>
+                    <th width="65%">&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat-start="student in ctrl.studentListAttendace | limitTo:10">
+                    <td>{{student.studentCode}}</td>
+                    <td>{{student.name}}</td>
+                    <td>{{ctrl.dummyData.CGPA60[$index]}}</td>
+                    <td>
+                        <a ng-click="ctrl.studentMarksDetailsShow[student.studentCode] = !ctrl.studentMarksDetailsShow[student.studentCode]" style="cursor:pointer">
+                            <i class="fa fa-bar-chart"></i>
+                            View Track Record
+                        </a>
+                    </td>
+                </tr>
+                <tr ng-repeat-end ng-if="ctrl.studentMarksDetailsShow[student.studentCode]" class="animated fadeIn"> 
+
+                    <td colspan="4" class="vertical_center-table">
+                        <table class="table table-striped" style="background-color:#F7F7F7" style="width:100%">
+                            <thead>                                
+                                <tr>
+                                    <th class="colorcombination1"></th>
+                                    <th class="colorcombination1"></th>
+                                    <th class="colorcombination1" ng-repeat="sem in ctrl.semesters.list"                                       
+                                    >
+                                    {{sem.no}}{{sem.subscript}} Sem
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom:1px solid rgb(109, 181, 151)">
+                                <td>
+                                    External
+                                </td>
+                                <td>
+                                    <div class="">
+                                        <div class="clearfix">
+                                            <div class="chart stats-bar-4" data-sparkline-bar></div>                               
+                                        </div>
+                                    </div>
+                                </td>
+                                <td ng-repeat="sem in ctrl.semesters.list" style="font-size:15px">
+                                    {{ctrl.dummyData.CGPA60[$index]}}
+                                </td>
+                            </tr>
+                            <tr>
+                             <td>
+                                Internal
+                            </td>
+                            <td>
+                                <div class="">
+                                    <div class="clearfix">
+                                        <div class="chart stats-bar-5" data-sparkline-bar></div>                               
+                                    </div>
+                                </div>
+                            </td>
+                            <td ng-repeat="sem in ctrl.semesters.list"  style="font-size:14px">
+                                {{ctrl.dummyData.PERCENT60[$index]}} %
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+
+</table>
+<at-pagination at-list="ctrl.studentListAttendaceFiltered" at-config="ctrl.studentListAttendace.config"></at-pagination>
+
+
+</div>
+</div>
+
+
+
+</div>
+<!-- END ALL-->
+
+
+
+
+
+<div ng-if="ctrl.semesters.selected != 'all'">
+
+    <!-- SEM SUMMARY VIEW FOR BATCH -->
+
+    <div class="row">
+
+        <!-- External -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <!--<h2 style="line-height:25px;">5<sup>th</sup> SEM CGPA <span style="position:absolute;top:22px;margin-left:10px;font-size:22px;">: 7.8</span><small>Average CGPA of whole batch</small></h2>-->
+
+                    <h2>Extrnal Exam Performace<small>How many students are falling in particular CGPA Ranges ?</small></h2>
+                    <h5 style="background-color: #E6E6E6;font-size: 19px;padding: 8px;margin-top: 0px;font-weight: 300;padding-left:10px;">Average CGPA of Batch : 7.6</h5>
+
+                </div>
+                <div class="card-body card-padding p-t-0">
+
+                  <div id="cgpaRangeStudents" style="width:100%;height:370px"></div>                            
+                  <script>
+                    cgpaViseStudentCount('cgpaRangeStudents');
+                </script>
+            </div>
+        </div>    
+    </div>
+    <!-- END - External -->
+    
+    <!-- Internal -->
+    <div class="col-md-6">
+       <div class="card">
+        <div class="card-header p-b-0">
+            <!--<h2 style="line-height:25px;">5<sup>th</sup> SEM CGPA <span style="position:absolute;top:22px;margin-left:10px;font-size:22px;">: 7.8</span><small>Average CGPA of whole batch</small></h2>-->
+
+            <h2>Internal Exam Performace<small>How many students are falling in particular % Ranges ?</small></h2>
+            <h5 style="background-color: #E6E6E6;font-size: 19px;padding: 8px;margin-top: 0px;font-weight: 300;padding-left:10px;">Average of Batch : 75%</h5>
+
+        </div>
+        <div class="card-body card-padding p-t-0">
+            <div class="row">
+                <div class="col-md-7">
+                    <div id="perRangeStudents" style="width:100%;height:300px"></div>                            
+                    <script>
+                        cgpaViseStudentCount('perRangeStudents');
+                    </script>
+                </div>
+
+                <div class="col-md-5" style="display:table;height:300px">
+                  <div style="display:table-cell;vertical-align:middle;">
+                    <div style="margin-left:auto;margin-right:auto;width:100%;">
+                        
+
+                    <table>
+                        <tr>
+                            <td class="legendColorBox"></td>
+                            <td class="legendLabel"></td>
+                            <td class="range">CGPA Range</td>
+                            <td class="count">Students</td>
+                        </tr>
+                    </table>
+                    <div id="internalRangeLegend"></div> 
+
+                    </div>
+                  </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>    
+</div>
+<!-- END - Internal -->
+
+</div>
+
+<!-- end ** SEM SUMMARY VIEW FOR BATCH -->
+
+
+<!-- STUDENT LIST SUBJECT WISE-->
+
+<div class="card">
+    <div class="card-header p-b-0">
+        <h2>Students Track Record</h2>
+        <hr/>
+    </div>
+    <div class="card-body card-padding p-t-0">
+
+        <div class="form-group p-b-0">
+            <div class="fg-line">
+                <input type="text" class="form-control input-sm" placeholder="Search Student" />
+            </div>
+        </div>
+
+        <table class="table" style="table-layout: fixed;width:100%">
+            <thead>
+                <tr>
+                    <th width="10%">Code</th>
+                    <th width="15%">Name</th>
+                    <th width="10%">Overall CGPA</th>
+                    <th width="65%">&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat-start="student in ctrl.studentListAttendace | limitTo:10">
+                    <td>{{student.studentCode}}</td>
+                    <td>{{student.name}}</td>
+                    <td>{{ctrl.dummyData.CGPA60[$index]}}</td>
+                    <td>
+                        <a ng-click="ctrl.studentMarksDetailsShow[student.studentCode] = !ctrl.studentMarksDetailsShow[student.studentCode]" style="cursor:pointer">
+                            <i class="fa fa-bar-chart"></i>
+                            View Track Record
+                        </a>
+                    </td>
+                </tr>
+                <tr ng-repeat-end ng-if="ctrl.studentMarksDetailsShow[student.studentCode]" class="animated fadeIn"> 
+
+                    <td colspan="4" class="vertical_center-table">
+                        <table class="table table-striped" style="background-color:#F7F7F7" style="width:100%">
+                            <thead>                                
+                                <tr>
+                                    <th class="colorcombination1"></th>
+                                    <th class="colorcombination1"></th>
+                                    <th class="colorcombination1" ng-repeat="sem in ctrl.semesters.list"                                       
+                                    >
+                                    {{sem.no}}{{sem.subscript}} Sem
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom:1px solid rgb(109, 181, 151)">
+                                <td>
+                                    External
+                                </td>
+                                <td>
+                                    <div class="">
+                                        <div class="clearfix">
+                                            <div class="chart stats-bar-4" data-sparkline-bar></div>                               
+                                        </div>
+                                    </div>
+                                </td>
+                                <td ng-repeat="sem in ctrl.semesters.list" style="font-size:15px">
+                                    {{ctrl.dummyData.CGPA60[$index]}}
+                                </td>
+                            </tr>
+                            <tr>
+                             <td>
+                                Internal
+                            </td>
+                            <td>
+                                <div class="">
+                                    <div class="clearfix">
+                                        <div class="chart stats-bar-5" data-sparkline-bar></div>                               
+                                    </div>
+                                </div>
+                            </td>
+                            <td ng-repeat="sem in ctrl.semesters.list"  style="font-size:14px">
+                                {{ctrl.dummyData.PERCENT60[$index]}} %
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+
+</table>
+<at-pagination at-list="ctrl.studentListAttendaceFiltered" at-config="ctrl.studentListAttendace.config"></at-pagination>
+
+
+</div>
+</div>
+<!--    END - STUDENT LIST SUBJECT WISE -->
+
+
+
+</div>
+<!-- END SEM VIEW-->
+
+

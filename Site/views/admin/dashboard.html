@@ -1,0 +1,803 @@
+    <header id="header" data-ng-include src="'views/includes/header.html'"
+        data-ng-controller="headerCtrl as hctrl"></header>
+
+<section id="main">
+    <aside id="sidebar" data-ng-include src="'views/admin/includes/sidebar-left.html'"
+           data-ng-class="{ 'toggled': mactrl.sidebarToggle.left === true }"></aside>
+
+    <section id="content" data-ng-controller="admin_dashboard as ctrl">
+        <div class="container" style="padding-right:45px;">
+
+
+            <style type="text/css">
+
+                .btn.disabled, .btn[disabled], fieldset[disabled] .btn {
+
+                    opacity: 1;
+                }
+
+            </style>
+            <style type="text/css">
+
+                /*Now the CSS*/
+                * {
+                    margin: 0;
+                    padding: 0;
+                }
+            </style>
+
+
+            <div class="card dashboard-nav-shadow" style="margin-bottom: 15px">
+
+                <div class="card-header card-padding" style="height:74px;">
+
+                    <!-- Tree start /////////// -->
+
+                    <button ng-click="ctrl.showHideTree()" class="btn btn-primary waves-effect pull-right"
+                            style="min-width:150px">
+                        Select Data Level
+                    </button>
+                    <!-- ///////////// tree end -->
+                    <div ng-if="false" class="row pull-right" style="width:500px;">
+                        <div class="col-md-4 clg-hierarchy-cell" style="padding-left:0px;">
+
+                            <div class="pull-right clg-hierarchy-btn-grp clg-hierarchy-btn-grp-dept non_grayed_out_text"
+                                 role="group"
+                                    >
+
+                                {{ctrl.selectedDept || 'All Departments'}}
+
+                                <button ng-if="ctrl.selectedDept != null"
+                                        ng-click="ctrl.selectedDept = null;ctrl.selectedYear = null;ctrl.selectedBatch = null;"
+                                        type="button"
+                                        class="btn btn-default waves-effect pull-right clg-hierarchy-btn-close"><i
+                                        class="md md-close"></i></button>
+
+
+                                <div ng-if="ctrl.selectedDept == null"
+                                     class="dropdown pull-right clg-hierarchy-btn-grp">
+
+                                    <button
+                                            type="button"
+                                            data-toggle="dropdown"
+                                            class="btn btn-default waves-effect pull-right clg-hierarchy-btn-arrow"><i
+                                            class="md md-keyboard-arrow-down"></i></button>
+
+                                    <ul class="dropdown-menu" style="width:100%">
+                                        <li><a ng-click="ctrl.selectedDept = 'Computer Science'">Computer Science</a>
+                                        </li>
+                                        <li><a ng-click="ctrl.selectedDept = 'Electronics'">Electronics</a></li>
+                                        <li><a ng-click="ctrl.selectedDept = 'Mechanical'">Mechanical</a></li>
+                                        <li><a ng-click="ctrl.selectedDept = 'Civil'">Civil</a></li>
+                                        <li><a ng-click="ctrl.selectedDept = 'Electrical'">Electrical</a></li>
+                                        <li><a ng-click="ctrl.selectedDept = 'Chemical'">Chemical</a></li>
+
+                                    </ul>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-4 clg-hierarchy-cell">
+
+                            <div class="pull-right clg-hierarchy-btn-grp clg-hierarchy-btn-grp-year"
+                                 ng-class="{'grayed_out_text' : ctrl.selectedDept == null,'non_grayed_out_text' : ctrl.selectedDept != null}"
+                                 role="group">
+
+
+                                {{ctrl.selectedYear || 'All Years'}}
+
+                                <button ng-if="ctrl.selectedYear != null"
+                                        ng-click="ctrl.selectedYear = null;ctrl.selectedBatch = null;"
+                                        type="button"
+                                        class="btn btn-default waves-effect pull-right clg-hierarchy-btn-close"><i
+                                        class="md md-close"></i></button>
+
+
+                                <div ng-if="ctrl.selectedDept != null && ctrl.selectedYear == null"
+                                     class="dropdown pull-right clg-hierarchy-btn-grp">
+
+                                    <button
+                                            type="button"
+                                            data-toggle="dropdown"
+                                            class="btn btn-default waves-effect pull-right clg-hierarchy-btn-arrow"><i
+                                            class="md md-keyboard-arrow-down"></i></button>
+
+                                    <ul class="dropdown-menu" style="width:100%">
+                                        <li><a ng-click="ctrl.selectedYear = '1st Year'">1st Year</a></li>
+                                        <li><a ng-click="ctrl.selectedYear = '2nd Year'">2nd Year</a></li>
+                                        <li><a ng-click="ctrl.selectedYear = '3rd Year'">3rd Year</a></li>
+                                        <li><a ng-click="ctrl.selectedYear = '4rth Year'">4rth Year</a></li>
+
+                                    </ul>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-4 clg-hierarchy-cell">
+
+                            <div class="pull-right clg-hierarchy-btn-grp clg-hierarchy-btn-grp-batch"
+                                 ng-class="{'grayed_out_text' : ctrl.selectedYear == null,'non_grayed_out_text' : ctrl.selectedYear != null}"
+                                 role="group"
+                                    >
+
+                                {{ctrl.selectedBatch || 'All Batches'}}
+
+                                <button ng-if="ctrl.selectedBatch != null"
+                                        ng-click="ctrl.selectedBatch = null;"
+                                        type="button"
+                                        class="btn btn-default waves-effect pull-right clg-hierarchy-btn-close"><i
+                                        class="md md-close"></i></button>
+
+
+                                <div ng-if="ctrl.selectedDept != null && ctrl.selectedYear != null && ctrl.selectedBatch == null"
+                                     class="dropdown pull-right clg-hierarchy-btn-grp">
+
+                                    <button
+                                            type="button"
+                                            data-toggle="dropdown"
+                                            class="btn btn-default waves-effect pull-right clg-hierarchy-btn-arrow"><i
+                                            class="md md-keyboard-arrow-down"></i></button>
+
+                                    <ul class="dropdown-menu" style="width:100%">
+                                        <li><a ng-click="ctrl.selectedBatch = 'Batch 1'">Batch 1</a></li>
+                                        <li><a ng-click="ctrl.selectedBatch = 'Batch 2'">Batch 2</a></li>
+                                    </ul>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <h2 STYLE="color: #1C4486; font-weight: 600;">DASHBOARD</h2>
+
+                    <ol class="breadcrumb">
+                        <li>DASHBOARD</li>
+
+                        <li>{{ctrl.menu.titles[ctrl.menu.activeTabIndex]}}</li>
+
+                        <li ng-repeat="item in ctrl.selectedOrgPath">
+                            {{item}}
+                        </li>
+
+                    </ol>
+
+
+                </div>
+
+                <div class="pm-body clearfix">
+
+                    <ul class="tab-nav tn-justified">
+                        <li class="btn-wave"
+                            data-ng-repeat="tab in ctrl.menu.titles"
+                            data-ng-class="{'active':ctrl.menu.activeTabIndex == $index}">
+                            <a data-ng-click="ctrl.menu.activeTabIndex = $index; ctrl.loadView($index);">
+                                {{tab}}
+                            </a>
+                        </li>
+                    </ul>
+
+
+                    <div ng-show="ctrl.isShowTree" class="" style="width:100%;height:300px;text-align:center">
+                        <div class="tree" style="display: inline-block;">
+                            <div
+                                    data-angular-treeview="true"
+                                    data-tree-id="orgHierarchy"
+                                    data-tree-model="treedata"
+                                    data-node-id="id"
+                                    data-node-label="title"
+                                    data-node-children="childNodes"
+                                    data-expanded-dept="101"
+                                    >
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div ng-show="ctrl.isShowTree"
+                         style="height:30px;background-color:rgba(234, 231, 239, 0.69);text-align:center;line-height:30px;font-size:15px;">
+                        <a style="cursor:pointer;" ng-click="ctrl.isShowTree = false;">CLOSE</a>
+                    </div>
+
+                    <div ng-if="false && ctrl.isShowTree" class="" style="width:100%;height:300px;text-align:center">
+                        <div class="tree" style="display: inline-block;">
+                            <ul>
+                                <li>
+                                    <button class="btn btn-primary waves-effect" id="college">SVBIT</button>
+                                    <ul>
+                                        <li id="ece">
+                                            <button class="btn btn-primary waves-effect">ECE</button>
+                                            <ul>
+                                                <li>
+                                                    <button class="btn btn-primary waves-effect">1st Yr</button>
+                                                    <ul>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">09ECE-A
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">09ECE-B
+                                                            </button>
+                                                        </li>
+
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <button class="btn btn-primary waves-effect">2nd Yr</button>
+                                                    <ul>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">08ECE-A
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">08ECE-B
+                                                            </button>
+                                                        </li>
+
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <button class="btn btn-primary waves-effect">3rd Yr</button>
+                                                    <ul>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">07ECE-A
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">07ECE-B
+                                                            </button>
+                                                        </li>
+
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <button class="btn btn-primary waves-effect">4th Yr</button>
+                                                    <ul>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">06ECE-A
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">06ECE-B
+                                                            </button>
+                                                        </li>
+
+                                                    </ul>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+
+                                        <li id="it">
+                                            <button class="btn btn-primary waves-effect">IT</button>
+                                            <ul>
+                                                <li>
+                                                    <button class="btn btn-primary waves-effect">1st Yr</button>
+                                                    <ul>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">09ECE-A
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">09ECE-B
+                                                            </button>
+                                                        </li>
+
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <button class="btn btn-primary waves-effect">2nd Yr</button>
+                                                    <ul>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">08ECE-A
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">08ECE-B
+                                                            </button>
+                                                        </li>
+
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <button class="btn btn-primary waves-effect">3rd Yr</button>
+                                                    <ul>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">07ECE-A
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">07ECE-B
+                                                            </button>
+                                                        </li>
+
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <button class="btn btn-primary waves-effect">4th Yr</button>
+                                                    <ul>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">06ECE-A
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">06ECE-B
+                                                            </button>
+                                                        </li>
+
+                                                    </ul>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+
+                                        <li id="ce">
+                                            <button class="btn btn-primary waves-effect">CE</button>
+                                            <ul>
+                                                <li>
+                                                    <button class="btn btn-primary waves-effect">1st Yr</button>
+                                                    <ul>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">09ECE-A
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">09ECE-B
+                                                            </button>
+                                                        </li>
+
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <button class="btn btn-primary waves-effect">2nd Yr</button>
+                                                    <ul>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">08ECE-A
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">08ECE-B
+                                                            </button>
+                                                        </li>
+
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <button class="btn btn-primary waves-effect">3rd Yr</button>
+                                                    <ul>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">07ECE-A
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">07ECE-B
+                                                            </button>
+                                                        </li>
+
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <button class="btn btn-primary waves-effect">4th Yr</button>
+                                                    <ul>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">06ECE-A
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">06ECE-B
+                                                            </button>
+                                                        </li>
+
+                                                    </ul>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+
+                                        <li id="chem">
+                                            <button class="btn btn-primary waves-effect">CHEM</button>
+                                            <ul>
+                                                <li>
+                                                    <button class="btn btn-primary waves-effect">1st Yr</button>
+                                                    <ul>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">09ECE-A
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">09ECE-B
+                                                            </button>
+                                                        </li>
+
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <button class="btn btn-primary waves-effect">2nd Yr</button>
+                                                    <ul>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">08ECE-A
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">08ECE-B
+                                                            </button>
+                                                        </li>
+
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <button class="btn btn-primary waves-effect">3rd Yr</button>
+                                                    <ul>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">07ECE-A
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">07ECE-B
+                                                            </button>
+                                                        </li>
+
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <button class="btn btn-primary waves-effect">4th Yr</button>
+                                                    <ul>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">06ECE-A
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">06ECE-B
+                                                            </button>
+                                                        </li>
+
+                                                    </ul>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+
+                                        <li id="mech">
+                                            <button class="btn btn-primary waves-effect">MECH</button>
+                                            <ul>
+                                                <li>
+                                                    <button class="btn btn-primary waves-effect">1st Yr</button>
+                                                    <ul>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">09ECE-A
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">09ECE-B
+                                                            </button>
+                                                        </li>
+
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <button class="btn btn-primary waves-effect">2nd Yr</button>
+                                                    <ul>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">08ECE-A
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">08ECE-B
+                                                            </button>
+                                                        </li>
+
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <button class="btn btn-primary waves-effect">3rd Yr</button>
+                                                    <ul>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">07ECE-A
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">07ECE-B
+                                                            </button>
+                                                        </li>
+
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <button class="btn btn-primary waves-effect">4th Yr</button>
+                                                    <ul>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">06ECE-A
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">06ECE-B
+                                                            </button>
+                                                        </li>
+
+                                                    </ul>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+
+                                        <li id="ic">
+                                            <button class="btn btn-primary waves-effect">IC</button>
+                                            <ul>
+                                                <li>
+                                                    <button class="btn btn-primary waves-effect">1st Yr</button>
+                                                    <ul>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">09ECE-A
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">09ECE-B
+                                                            </button>
+                                                        </li>
+
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <button class="btn btn-primary waves-effect">2nd Yr</button>
+                                                    <ul>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">08ECE-A
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">08ECE-B
+                                                            </button>
+                                                        </li>
+
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <button class="btn btn-primary waves-effect">3rd Yr</button>
+                                                    <ul>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">07ECE-A
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">07ECE-B
+                                                            </button>
+                                                        </li>
+
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <button class="btn btn-primary waves-effect">4th Yr</button>
+                                                    <ul>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">06ECE-A
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="btn btn-primary waves-effect">06ECE-B
+                                                            </button>
+                                                        </li>
+
+                                                    </ul>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <script type="text/javascript">
+
+                            var id = 'ece';
+                            $(".tree > ul > li:not(#" + id + ") > ul").hide();
+                            $("#" + id + " > ul").show();
+
+                            $("#college + ul > li > button").click(function () {
+                                console.log($(this)[0].parentElement.id);
+
+                                var id = $(this)[0].parentElement.id;
+                                $("#college + ul > li:not(#" + id + ") > ul").hide();
+
+                                $("#" + id + " > ul").show();
+
+                            });
+
+                            /*
+                             var id = 'ece';
+                             $( "#college + ul > li:not(#"+id+") > ul" ).hide();
+                             $("#"+id+" > ul").show();
+
+                             $( "#college + ul > li > button" ).click(function() {
+                             console.log($(this)[0].parentElement.id);
+
+                             var id = $(this)[0].parentElement.id;
+                             $( "#college + ul > li:not(#"+id+") > ul" ).hide();
+
+                             $("#"+id+" > ul").show();
+
+                             });
+                             */
+
+                        </script>
+
+
+                    </div>
+
+                </div>
+                <div class="card-body  card-padding clg-hierarchy" ng-if="false">
+                    <div class="row">
+                        <div class="col-md-4 clg-hierarchy-cell" style="padding-left:0px;">
+
+                            <div class="pull-right clg-hierarchy-btn-grp clg-hierarchy-btn-grp-dept non_grayed_out_text"
+                                 role="group"
+                                    >
+
+                                {{ctrl.selectedDept || 'All Departments'}}
+
+                                <button ng-if="ctrl.selectedDept != null"
+                                        ng-click="ctrl.selectedDept = null;ctrl.selectedYear = null;ctrl.selectedBatch = null;"
+                                        type="button"
+                                        class="btn btn-default waves-effect pull-right clg-hierarchy-btn-close"><i
+                                        class="md md-close"></i></button>
+
+
+                                <div ng-if="ctrl.selectedDept == null"
+                                     class="dropdown pull-right clg-hierarchy-btn-grp">
+
+                                    <button
+                                            type="button"
+                                            data-toggle="dropdown"
+                                            class="btn btn-default waves-effect pull-right clg-hierarchy-btn-arrow"><i
+                                            class="md md-keyboard-arrow-down"></i></button>
+
+                                    <ul class="dropdown-menu" style="width:100%">
+                                        <li><a ng-click="ctrl.selectedDept = 'Computer Science'">Computer Science</a>
+                                        </li>
+                                        <li><a ng-click="ctrl.selectedDept = 'Electronics'">Electronics</a></li>
+                                        <li><a ng-click="ctrl.selectedDept = 'Mechanical'">Mechanical</a></li>
+                                        <li><a ng-click="ctrl.selectedDept = 'Civil'">Civil</a></li>
+                                        <li><a ng-click="ctrl.selectedDept = 'Electrical'">Electrical</a></li>
+                                        <li><a ng-click="ctrl.selectedDept = 'Chemical'">Chemical</a></li>
+
+                                    </ul>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-4 clg-hierarchy-cell">
+
+                            <div class="pull-right clg-hierarchy-btn-grp clg-hierarchy-btn-grp-year"
+                                 ng-class="{'grayed_out_text' : ctrl.selectedDept == null,'non_grayed_out_text' : ctrl.selectedDept != null}"
+                                 role="group">
+
+
+                                {{ctrl.selectedYear || 'All Years'}}
+
+                                <button ng-if="ctrl.selectedYear != null"
+                                        ng-click="ctrl.selectedYear = null;ctrl.selectedBatch = null;"
+                                        type="button"
+                                        class="btn btn-default waves-effect pull-right clg-hierarchy-btn-close"><i
+                                        class="md md-close"></i></button>
+
+
+                                <div ng-if="ctrl.selectedDept != null && ctrl.selectedYear == null"
+                                     class="dropdown pull-right clg-hierarchy-btn-grp">
+
+                                    <button
+                                            type="button"
+                                            data-toggle="dropdown"
+                                            class="btn btn-default waves-effect pull-right clg-hierarchy-btn-arrow"><i
+                                            class="md md-keyboard-arrow-down"></i></button>
+
+                                    <ul class="dropdown-menu" style="width:100%">
+                                        <li><a ng-click="ctrl.selectedYear = '1st Year'">1st Year</a></li>
+                                        <li><a ng-click="ctrl.selectedYear = '2nd Year'">2nd Year</a></li>
+                                        <li><a ng-click="ctrl.selectedYear = '3rd Year'">3rd Year</a></li>
+                                        <li><a ng-click="ctrl.selectedYear = '4rth Year'">4rth Year</a></li>
+
+                                    </ul>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-4 clg-hierarchy-cell">
+
+                            <div class="pull-right clg-hierarchy-btn-grp clg-hierarchy-btn-grp-batch"
+                                 ng-class="{'grayed_out_text' : ctrl.selectedYear == null,'non_grayed_out_text' : ctrl.selectedYear != null}"
+                                 role="group"
+                                    >
+
+                                {{ctrl.selectedBatch || 'All Batches'}}
+
+                                <button ng-if="ctrl.selectedBatch != null"
+                                        ng-click="ctrl.selectedBatch = null;"
+                                        type="button"
+                                        class="btn btn-default waves-effect pull-right clg-hierarchy-btn-close"><i
+                                        class="md md-close"></i></button>
+
+
+                                <div ng-if="ctrl.selectedDept != null && ctrl.selectedYear != null && ctrl.selectedBatch == null"
+                                     class="dropdown pull-right clg-hierarchy-btn-grp">
+
+                                    <button
+                                            type="button"
+                                            data-toggle="dropdown"
+                                            class="btn btn-default waves-effect pull-right clg-hierarchy-btn-arrow"><i
+                                            class="md md-keyboard-arrow-down"></i></button>
+
+                                    <ul class="dropdown-menu" style="width:100%">
+                                        <li><a ng-click="ctrl.selectedBatch = 'Batch 1'">Batch 1</a></li>
+                                        <li><a ng-click="ctrl.selectedBatch = 'Batch 2'">Batch 2</a></li>
+                                    </ul>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!--
+
+              ******* ALl Departments ^ -- >  All Yeasr ----- > All Batches
+              ******* EC -- >  All Yeasr ^ ----- > All Batches
+
+                        -->
+                    </div>
+
+                    <div class="row">
+
+                        <div class="animated zoomIn" style="width:900px;height:300px;background-color:blue">
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- quick stats-->
+            <div ng-if="ctrl.menu.activeTabIndex == 0">
+                QUICK STATS WIP
+            </div>
+
+            <!-- ATTENDANCE ANALYTICS-->
+            <div ng-if="ctrl.menu.activeTabIndex == 1">
+
+                <div ng-include src="'views/admin/analytics/attendance.html'"></div>
+
+            </div>
+
+
+            <!-- ATTENDANCE ANALYTICS-->
+            <div ng-if="ctrl.menu.activeTabIndex == 2">
+
+                <div ng-include src="'views/admin/analytics/marks.html'"></div>
+
+            </div>
+
+
+    </section>
+</section>
+
+<footer id="footer" data-ng-include src="'views/includes/footer.html'"></footer>

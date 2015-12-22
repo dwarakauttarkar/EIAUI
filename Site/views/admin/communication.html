@@ -1,0 +1,840 @@
+
+
+<header id="header" data-ng-include src="'views/includes/header.html'"
+        data-ng-controller="headerCtrl as hctrl"></header>
+<aside id="sidebar" data-ng-include src="'views/admin/includes/sidebar-left.html'"
+       data-ng-class="{ 'toggled': mactrl.sidebarToggle.left === true }"></aside>
+
+<section id="content" class="page-view"  data-ng-controller="admin_communication as ctrl">
+
+    <div class="container">
+
+    <div class="card m-b-0" id="messages-main">
+
+        <div class="ms-menu">
+            <div class="ms-block">
+                <div class="dropdown" data-animation="flipInX,flipOutX">
+                    <a class="btn btn-primary btn-block waves-effect" href="" data-toggle="dropdown">Messages <i class="caret m-l-5"></i></a>
+
+                    <ul class="dropdown-menu dm-icon w-100">
+                        <li><a href=""><i class="md md-mail"></i> Messages</a></li>
+                        <li><a href=""><i class="md md-people"></i> All Contacts</a></li>
+                        <li><a href=""><i class="md md-people"></i>All Groups</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="ms-block communication-controls">
+                <div class="form-group">
+                    <div class="fg-line">
+                        <input type="text" class="form-control" placeholder="Search All Messages">
+                    </div>
+                </div>
+            </div>
+
+            <div class="listview lv-user m-t-20">
+                <div class="lv-item media active" data-ng-click="ctrl.switchCards('showMessage');">
+                    <div class="lv-avatar pull-left">
+                        <img src="img/profile-pics/1.jpg" alt="">
+                    </div>
+                    <div class="media-body pull-left">
+                        <div class="lv-title">Davil Parnell</div>
+                        <div class="lv-small">Fierent fastidii recteque ad pro</div>
+                    </div>
+                    <div class="pull-right">
+                        <a href="">
+                            <i class="md md-delete btn-delete"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lv-item media" data-ng-click="ctrl.switchCards('showMessage');">
+                    <div class="lv-avatar bgm-red pull-left">a</div>
+                    <div class="media-body pull-left">
+                        <div class="lv-title">Ann Watkinson</div>
+                        <div class="lv-small">Cum sociis natoque penatibus </div>
+                    </div>
+                    <div class="pull-right">
+                        <a href="">
+                            <i class="md md-delete btn-delete"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lv-item media" data-ng-click="ctrl.switchCards('showMessage');">
+                    <div class="lv-avatar bgm-orange pull-left">m</div>
+                    <div class="media-body pull-left">
+                        <div class="lv-title">Marse Walter</div>
+                        <div class="lv-small">Suspendisse sapien ligula</div>
+                    </div>
+                    <div class="pull-right">
+                        <a href="">
+                            <i class="md md-delete btn-delete"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lv-item media" data-ng-click="ctrl.switchCards('showMessage');">
+                    <div class="lv-avatar pull-left">
+                        <img src="img/profile-pics/2.jpg" alt="">
+                    </div>
+                    <div class="media-body pull-left">
+                        <div class="lv-title">Jeremy Robbins</div>
+                        <div class="lv-small">Phasellus porttitor tellus nec</div>
+                    </div>
+                    <div class="pull-right">
+                        <a href="">
+                            <i class="md md-delete btn-delete"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lv-item media" data-ng-click="ctrl.switchCards('showMessage');">
+                    <div class="lv-avatar pull-left">
+                        <img src="img/profile-pics/3.jpg" alt="">
+                    </div>
+                    <div class="media-body pull-left">
+                        <div class="lv-title">Reginald Horace</div>
+                        <div class="lv-small">Quisque consequat arcu eget</div>
+                    </div>
+                    <div class="pull-right">
+                        <a href="">
+                            <i class="md md-delete btn-delete"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lv-item media" data-ng-click="ctrl.switchCards('showMessage');">
+                    <div class="lv-avatar bgm-cyan pull-left">s</div>
+                    <div class="media-body pull-left">
+                        <div class="lv-title">Shark Henry</div>
+                        <div class="lv-small">Nam lobortis odio et leo maximu</div>
+                    </div>
+                    <div class="pull-right">
+                        <a href="">
+                            <i class="md md-delete btn-delete"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lv-item media" data-ng-click="ctrl.switchCards('showMessage');">
+                    <div class="lv-avatar bgm-purple pull-left">p</div>
+                    <div class="media-body pull-left">
+                        <div class="lv-title">Paul Van Dack</div>
+                        <div class="lv-small">Nam posuere purus sed velit auctor sodales</div>
+                    </div>
+                    <div class="pull-right">
+                        <a href="">
+                            <i class="md md-delete btn-delete"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lv-item media" data-ng-click="ctrl.switchCards('showMessage');">
+                    <div class="lv-avatar pull-left">
+                        <img src="img/profile-pics/4.jpg" alt="">
+                    </div>
+                    <div class="media-body pull-left">
+                        <div class="lv-title">James Anderson</div>
+                        <div class="lv-small">Vivamus imperdiet sagittis quam</div>
+                    </div>
+                    <div class="pull-right">
+                        <a href="">
+                            <i class="md md-delete btn-delete"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lv-item media" data-ng-click="ctrl.switchCards('showMessage');">
+                    <div class="lv-avatar pull-left">
+                        <img src="img/profile-pics/6.jpg" alt="">
+                    </div>
+                    <div class="media-body pull-left">
+                        <div class="lv-title">Kane Williams</div>
+                        <div class="lv-small">Suspendisse justo nulla luctus nec</div>
+                    </div>
+                    <div class="pull-right">
+                        <a href="">
+                            <i class="md md-delete btn-delete"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+        <div class="ms-body">
+            <div class="listview lv-message">
+                <div class="lv-header-alt bgm-white">
+                    <div id="ms-menu-trigger">
+                        <div class="line-wrap">
+                            <div class="line top"></div>
+                            <div class="line center"></div>
+                            <div class="line bottom"></div>
+                        </div>
+                    </div>
+                    <div ng-if="ctrl.switchCardsType ==='showMessage'" class="pull-left">
+                    <div class="lvh-label hidden-xs">
+                        <div class="lv-avatar pull-left">
+                            <img src="img/profile-pics/1.jpg" alt="">
+                        </div>
+
+                        <span class="c-black">David Parbell</span>
+
+                    </div>
+                    </div>
+                    <div ng-if="ctrl.switchCardsType ==='onetoone' || ctrl.switchCardsType ==='composemessage'">
+                        <div class="lvh-label pull-left">
+                            <span class="c-black">Select contacts to send message</span>
+                        </div>
+                    </div>
+                    <div ng-if="ctrl.switchCardsType ==='groups'">
+                        <div class="lvh-label pull-left">
+                            <span class="c-black">Select groups to send message</span>
+                        </div>
+                    </div>
+                    <ul class="lv-actions actions">
+
+                        <li>
+                            <a href="" data-ng-click="ctrl.switchCards('addgroups');">
+                                <i class="md md-group-add"></i>
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="" data-toggle="dropdown" aria-expanded="false">
+                                <i class="md md-more-vert"></i>
+                            </a>
+
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li>
+                                    <a href="" data-ng-click="ctrl.switchCards('onetoone');">One to One</a>
+                                </li>
+                                <li>
+                                    <a href="" data-ng-click="ctrl.switchCards('groups');">Groups</a>
+                                </li>
+                                <li>
+                                    <a href="" data-ng-click="ctrl.switchCards('broadcast');">Broadcast</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div ng-if="ctrl.switchCardsType ==='showMessage'">
+
+                <div class="lv-body">
+                    <div class="lv-item media">
+                        <div class="lv-avatar pull-left">
+                            <img src="img/profile-pics/1.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <div class="ms-item">
+                                Quisque consequat arcu eget odio cursus, ut tempor arcu vestibulum. Etiam ex arcu, porta a urna non, lacinia pellentesque orci. Proin semper sagittis erat, eget condimentum sapien viverra et. Mauris volutpat magna nibh, et condimentum est rutrum a. Nunc sed turpis mi. In eu massa a sem pulvinar lobortis.
+                            </div>
+                            <small class="ms-date"><i class="md md-access-time"></i> 20/02/2015 at 09:00</small>
+                        </div>
+                    </div>
+
+                    <div class="lv-item media right">
+                        <div class="lv-avatar pull-right">
+                            <img src="img/profile-pics/8.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <div class="ms-item">
+                                Mauris volutpat magna nibh, et condimentum est rutrum a. Nunc sed turpis mi. In eu massa a sem pulvinar lobortis.
+                            </div>
+                            <small class="ms-date"><i class="md md-access-time"></i> 20/02/2015 at 09:30</small>
+                        </div>
+                    </div>
+
+                    <div class="lv-item media">
+                        <div class="lv-avatar pull-left">
+                            <img src="img/profile-pics/1.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <div class="ms-item">
+                                Etiam ex arcumentum
+                            </div>
+                            <small class="ms-date"><i class="md md-access-time"></i> 20/02/2015 at 09:33</small>
+                        </div>
+                    </div>
+
+                    <div class="lv-item media right">
+                        <div class="lv-avatar pull-right">
+                            <img src="img/profile-pics/8.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <div class="ms-item">
+                                Etiam nec facilisis lacus. Nulla imperdiet augue ullamcorper dui ullamcorper, eu laoreet sem consectetur. Aenean et ligula risus. Praesent sed posuere sem. Cum sociis natoque penatibus et magnis dis parturient montes,
+                            </div>
+                            <small class="ms-date"><i class="md md-access-time"></i> 20/02/2015 at 10:10</small>
+                        </div>
+                    </div>
+
+                    <div class="lv-item media">
+                        <div class="lv-avatar pull-left">
+                            <img src="img/profile-pics/1.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <div class="ms-item">
+                                Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam ac tortor ut elit sodales varius. Mauris id ipsum id mauris malesuada tincidunt. Vestibulum elit massa, pulvinar at sapien sed, luctus vestibulum eros. Etiam finibus tristique ante, vitae rhoncus sapien volutpat eget
+                            </div>
+                            <small class="ms-date"><i class="md md-access-time"></i> 20/02/2015 at 10:24</small>
+                        </div>
+                    </div>
+                </div>
+                    <div class="lv-footer ms-reply">
+                        <textarea placeholder="Reply to message..."></textarea>
+
+                        <button><i class="md md-send"></i></button>
+                    </div>
+                </div>
+
+                <div ng-if="ctrl.switchCardsType ==='onetoone'">
+
+                    <div class="lv-body">
+                        <div class="ms-block communication-controls">
+                            <div class="form-group" style="overflow: auto;">
+                                <div class="pull-left"> <strong>150 contacts selected</strong></div>
+                                <div class="btn-group pull-right">
+                                    <button type="button" class="btn btn-primary waves-effect">Select All</button>
+                                    <button type="button" class="btn btn-primary waves-effect" data-ng-click="ctrl.switchCards('composemessage');">Done </button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="fg-line">
+                                    <input type="text" class="form-control" placeholder="Search contacts">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="listview lv-bordered lv-lg">
+                            <div class="lv-body">
+                                <div class="lv-item media">
+                                    <div class="checkbox pull-left">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            <i class="input-helper"></i>
+                                        </label>
+                                    </div>
+                                    <div class="lv-avatar pull-left">
+                                        <img src="img/profile-pics/1.jpg" alt="">
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="lv-title">Manish Gautam</div>
+                                        <small class="lv-small">Semc 4 Ece  (Roll -101254)</small>
+                                    </div>
+                                </div>
+                                <div class="lv-item media">
+                                    <div class="checkbox pull-left">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            <i class="input-helper"></i>
+                                        </label>
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="lv-title">Manish Gautam</div>
+                                        <small class="lv-small">Semc 4 Ece  (Roll -101254)</small>
+                                    </div>
+                                </div>
+                                <div class="lv-item media">
+                                    <div class="checkbox pull-left">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            <i class="input-helper"></i>
+                                        </label>
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="lv-title">Manish Gautam</div>
+                                        <small class="lv-small">Semc 4 Ece  (Roll -101254)</small>
+                                    </div>
+                                </div>
+                                <div class="lv-item media">
+                                    <div class="checkbox pull-left">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            <i class="input-helper"></i>
+                                        </label>
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="lv-title">Manish Gautam</div>
+                                        <small class="lv-small">Semc 4 Ece  (Roll -101254)</small>
+                                    </div>
+                                </div>
+                                <div class="lv-item media">
+                                    <div class="checkbox pull-left">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            <i class="input-helper"></i>
+                                        </label>
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="lv-title">Manish Gautam</div>
+                                        <small class="lv-small">Semc 4 Ece  (Roll -101254)</small>
+                                    </div>
+                                </div>
+                                <div class="lv-item media">
+                                    <div class="checkbox pull-left">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            <i class="input-helper"></i>
+                                        </label>
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="lv-title">Manish Gautam</div>
+                                        <small class="lv-small">Semc 4 Ece  (Roll -101254)</small>
+                                    </div>
+                                </div>
+                                <div class="lv-item media">
+                                    <div class="checkbox pull-left">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            <i class="input-helper"></i>
+                                        </label>
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="lv-title">Manish Gautam</div>
+                                        <small class="lv-small">Semc 4 Ece  (Roll -101254)</small>
+                                    </div>
+                                </div>
+                                <div class="lv-item media">
+                                    <div class="checkbox pull-left">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            <i class="input-helper"></i>
+                                        </label>
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="lv-title">Manish Gautam</div>
+                                        <small class="lv-small">Semc 4 Ece  (Roll -101254)</small>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div ng-if="ctrl.switchCardsType ==='groups'">
+
+                    <div class="lv-body">
+                        <div class="ms-block communication-controls">
+                            <div class="form-group" style="overflow: auto;">
+                                <div class="pull-left"> <strong>5 groups selected</strong></div>
+                                <div class="btn-group pull-right">
+
+                                    <button type="button" class="btn btn-primary waves-effect" data-ng-click="ctrl.switchCards('composemessage');">Done </button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="fg-line">
+                                    <input type="text" class="form-control" placeholder="Search groups">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="listview lv-bordered lv-lg">
+                            <div class="lv-body">
+                                <div class="lv-item media">
+                                    <div class="checkbox pull-left">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            <i class="input-helper"></i>
+                                        </label>
+                                    </div>
+                                    <div class="group-icon-contact pull-left">
+                                        <i class="md md-group"></i>
+                                    </div>
+                                    <div class="media-body pull-left">
+                                        <div class="lv-title">Name of group</div>
+                                        <small class="lv-small">Manish, Rahul, Dwarka and 5 others </small>
+                                    </div>
+                                    <div class="pull-right">
+                                        <button class="btn bgm-lightblue btn-icon waves-effect" data-ng-click="ctrl.switchCards('addgroups');"><i class="md md-mode-edit"></i></button>
+                                    </div>
+                                </div>
+                                <div class="lv-item media">
+                                    <div class="checkbox pull-left">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            <i class="input-helper"></i>
+                                        </label>
+                                    </div>
+                                    <div class="group-icon-contact pull-left">
+                                        <i class="md md-group"></i>
+                                    </div>
+                                    <div class="media-body pull-left">
+                                        <div class="lv-title">Name of group</div>
+                                        <small class="lv-small">Manish, Rahul, Dwarka and 5 others </small>
+                                    </div>
+                                    <div class="pull-right">
+                                        <button class="btn bgm-lightblue btn-icon waves-effect" data-ng-click="ctrl.switchCards('addgroups');"><i class="md md-mode-edit"></i></button>
+                                    </div>
+                                </div>
+                                <div class="lv-item media">
+                                    <div class="checkbox pull-left">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            <i class="input-helper"></i>
+                                        </label>
+                                    </div>
+                                    <div class="group-icon-contact pull-left">
+                                        <i class="md md-group"></i>
+                                    </div>
+                                    <div class="media-body pull-left">
+                                        <div class="lv-title">Name of group</div>
+                                        <small class="lv-small">Manish, Rahul, Dwarka and 5 others </small>
+                                    </div>
+                                    <div class="pull-right">
+                                        <button class="btn bgm-lightblue btn-icon waves-effect" data-ng-click="ctrl.switchCards('addgroups');"><i class="md md-mode-edit"></i></button>
+                                    </div>
+                                </div>
+                                <div class="lv-item media">
+                                    <div class="checkbox pull-left">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            <i class="input-helper"></i>
+                                        </label>
+                                    </div>
+                                    <div class="group-icon-contact pull-left">
+                                        <i class="md md-group"></i>
+                                    </div>
+                                    <div class="media-body pull-left">
+                                        <div class="lv-title">Name of group</div>
+                                        <small class="lv-small">Manish, Rahul, Dwarka and 5 others </small>
+                                    </div>
+                                    <div class="pull-right">
+                                        <button class="btn bgm-lightblue btn-icon waves-effect" data-ng-click="ctrl.switchCards('addgroups');"><i class="md md-mode-edit"></i></button>
+                                    </div>
+                                </div>
+                                <div class="lv-item media">
+                                    <div class="checkbox pull-left">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            <i class="input-helper"></i>
+                                        </label>
+                                    </div>
+                                    <div class="group-icon-contact pull-left">
+                                        <i class="md md-group"></i>
+                                    </div>
+                                    <div class="media-body pull-left">
+                                        <div class="lv-title">Name of group</div>
+                                        <small class="lv-small">Manish, Rahul, Dwarka and 5 others </small>
+                                    </div>
+                                    <div class="pull-right">
+                                        <button class="btn bgm-lightblue btn-icon waves-effect" data-ng-click="ctrl.switchCards('addgroups');"><i class="md md-mode-edit"></i></button>
+                                    </div>
+                                </div>
+                                <div class="lv-item media">
+                                    <div class="checkbox pull-left">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            <i class="input-helper"></i>
+                                        </label>
+                                    </div>
+                                    <div class="group-icon-contact pull-left">
+                                        <i class="md md-group"></i>
+                                    </div>
+                                    <div class="media-body pull-left">
+                                        <div class="lv-title">Name of group</div>
+                                        <small class="lv-small">Manish, Rahul, Dwarka and 5 others </small>
+                                    </div>
+                                    <div class="pull-right">
+                                        <button class="btn bgm-lightblue btn-icon waves-effect" data-ng-click="ctrl.switchCards('addgroups');"><i class="md md-mode-edit"></i></button>
+                                    </div>
+                                </div>
+                                <div class="lv-item media">
+                                    <div class="checkbox pull-left">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            <i class="input-helper"></i>
+                                        </label>
+                                    </div>
+                                    <div class="group-icon-contact pull-left">
+                                        <i class="md md-group"></i>
+                                    </div>
+                                    <div class="media-body pull-left">
+                                        <div class="lv-title">Name of group</div>
+                                        <small class="lv-small">Manish, Rahul, Dwarka and 5 others </small>
+                                    </div>
+                                    <div class="pull-right">
+                                        <button class="btn bgm-lightblue btn-icon waves-effect" data-ng-click="ctrl.switchCards('addgroups');"><i class="md md-mode-edit"></i></button>
+                                    </div>
+                                </div>
+                                <div class="lv-item media">
+                                    <div class="checkbox pull-left">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            <i class="input-helper"></i>
+                                        </label>
+                                    </div>
+                                    <div class="group-icon-contact pull-left">
+                                        <i class="md md-group"></i>
+                                    </div>
+                                    <div class="media-body pull-left">
+                                        <div class="lv-title">Name of group</div>
+                                        <small class="lv-small">Manish, Rahul, Dwarka and 5 others </small>
+                                    </div>
+                                    <div class="pull-right">
+                                        <button class="btn bgm-lightblue btn-icon waves-effect" data-ng-click="ctrl.switchCards('addgroups');"><i class="md md-mode-edit"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div ng-if="ctrl.switchCardsType ==='addgroups'">
+
+                    <div class="lv-body">
+                        <div class="ms-block communication-controls">
+                            <div class="row" style="overflow: auto;">
+                                <div class="col-md-6"><strong>Total 150 members in group </strong> <small>Select contact to add them in group</small></div>
+                                <div class="col-md-4"> <input type="text" class="form-control" placeholder="Name of the Group"></div>
+                                <div class="col-md-2"><button type="button" class="btn btn-primary waves-effect pull-right">Done </button></div>
+
+                            </div>
+                            <div class="form-group" style="overflow: auto;">
+                                <div class="fg-line pull-right">
+                                    <input type="text" class="form-control" placeholder="Search contacts">
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="listview lv-bordered lv-lg">
+                            <div class="lv-body">
+                                <div class="listview lv-bordered lv-lg">
+                                    <div class="lv-body">
+                                        <div class="lv-item media">
+                                            <div class="checkbox pull-left">
+                                                <label>
+                                                    <input type="checkbox" checked value="">
+                                                    <i class="input-helper"></i>
+                                                </label>
+                                            </div>
+                                            <div class="lv-avatar pull-left">
+                                                <img src="img/profile-pics/1.jpg" alt="">
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="lv-title">Manish Gautam</div>
+                                                <small class="lv-small">Semc 4 Ece  (Roll -101254)</small>
+                                            </div>
+                                        </div>
+                                        <div class="lv-item media">
+                                            <div class="checkbox pull-left">
+                                                <label>
+                                                    <input type="checkbox" checked value="">
+                                                    <i class="input-helper"></i>
+                                                </label>
+                                            </div>
+                                            <div class="lv-avatar pull-left">
+                                                <img src="img/profile-pics/1.jpg" alt="">
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="lv-title">Manish Gautam</div>
+                                                <small class="lv-small">Semc 4 Ece  (Roll -101254)</small>
+                                            </div>
+                                        </div>
+                                        <div class="lv-item media">
+                                            <div class="checkbox pull-left">
+                                                <label>
+                                                    <input type="checkbox" checked value="">
+                                                    <i class="input-helper"></i>
+                                                </label>
+                                            </div>
+                                            <div class="lv-avatar pull-left">
+                                                <img src="img/profile-pics/1.jpg" alt="">
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="lv-title">Manish Gautam</div>
+                                                <small class="lv-small">Semc 4 Ece  (Roll -101254)</small>
+                                            </div>
+                                        </div>
+                                        <div class="lv-item media">
+                                            <div class="checkbox pull-left">
+                                                <label>
+                                                    <input type="checkbox" value="">
+                                                    <i class="input-helper"></i>
+                                                </label>
+                                            </div>
+                                            <div class="lv-avatar pull-left">
+                                                <img src="img/profile-pics/1.jpg" alt="">
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="lv-title">Manish Gautam</div>
+                                                <small class="lv-small">Semc 4 Ece  (Roll -101254)</small>
+                                            </div>
+                                        </div>
+                                        <div class="lv-item media">
+                                            <div class="checkbox pull-left">
+                                                <label>
+                                                    <input type="checkbox" value="">
+                                                    <i class="input-helper"></i>
+                                                </label>
+                                            </div>
+                                            <div class="lv-avatar pull-left">
+                                                <img src="img/profile-pics/1.jpg" alt="">
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="lv-title">Manish Gautam</div>
+                                                <small class="lv-small">Semc 4 Ece  (Roll -101254)</small>
+                                            </div>
+                                        </div>
+                                        <div class="lv-item media">
+                                            <div class="checkbox pull-left">
+                                                <label>
+                                                    <input type="checkbox" value="">
+                                                    <i class="input-helper"></i>
+                                                </label>
+                                            </div>
+                                            <div class="lv-avatar pull-left">
+                                                <img src="img/profile-pics/1.jpg" alt="">
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="lv-title">Manish Gautam</div>
+                                                <small class="lv-small">Semc 4 Ece  (Roll -101254)</small>
+                                            </div>
+                                        </div>
+                                        <div class="lv-item media">
+                                            <div class="checkbox pull-left">
+                                                <label>
+                                                    <input type="checkbox" value="">
+                                                    <i class="input-helper"></i>
+                                                </label>
+                                            </div>
+                                            <div class="lv-avatar pull-left">
+                                                <img src="img/profile-pics/1.jpg" alt="">
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="lv-title">Manish Gautam</div>
+                                                <small class="lv-small">Semc 4 Ece  (Roll -101254)</small>
+                                            </div>
+                                        </div>
+                                        <div class="lv-item media">
+                                            <div class="checkbox pull-left">
+                                                <label>
+                                                    <input type="checkbox" value="">
+                                                    <i class="input-helper"></i>
+                                                </label>
+                                            </div>
+                                            <div class="lv-avatar pull-left">
+                                                <img src="img/profile-pics/1.jpg" alt="">
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="lv-title">Manish Gautam</div>
+                                                <small class="lv-small">Semc 4 Ece  (Roll -101254)</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div ng-if="ctrl.switchCardsType ==='composemessage'">
+
+                    <div class="lv-body">
+                        <div class="ms-block communication-controls">
+                            <div class="form-group" style="overflow: auto;">
+                                <div class="pull-left"> <strong>Sending message to 150 contacts</strong></div>
+                                <div class="btn-group pull-right">
+                                    <button type="button" class="btn btn-primary waves-effect">Select All</button>
+                                    <button type="button" class="btn btn-primary waves-effect">Done </button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox m-b-15">
+                                    <label>
+                                        <input type="checkbox" value="">
+                                        <i class="input-helper"></i>
+                                        Allow others to reply to this message thread.
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="selected-contacts" style="overflow: auto;">
+                            <div class="pull-left contacts-list">
+                                <div class="pull-left">
+                                    <label>Manish Gautam <br><small>Sem 4 (Roll-152412)</small></label>
+                                    </div>
+                                <div class="pull-right delete-btn">
+                                    <a href=""><i class="md md-close"></i></a>
+                                </div>
+                            </div>
+                            <div class="pull-left contacts-list">
+                                <div class="pull-left">
+                                    <label>Manish Gautam <br><small>Sem 4 (Roll-152412)</small></label>
+                                </div>
+                                <div class="pull-right delete-btn">
+                                    <a href=""><i class="md md-close"></i></a>
+                                </div>
+                            </div>
+                            <div class="pull-left contacts-list">
+                                <div class="pull-left">
+                                    <label>Manish Gautam <br><small>Sem 4 (Roll-152412)</small></label>
+                                </div>
+                                <div class="pull-right delete-btn">
+                                    <a href=""><i class="md md-close"></i></a>
+                                </div>
+                            </div>
+                            <div class="pull-left contacts-list">
+                                <div class="pull-left">
+                                    <label>Manish Gautam <br><small>Sem 4 (Roll-152412)</small></label>
+                                </div>
+                                <div class="pull-right delete-btn">
+                                    <a href=""><i class="md md-close"></i></a>
+                                </div>
+                            </div>
+                            <div class="pull-left contacts-list">
+                                <div class="pull-left">
+                                    <label>Manish Gautam <br><small>Sem 4 (Roll-152412)</small></label>
+                                </div>
+                                <div class="pull-right delete-btn">
+                                    <a href=""><i class="md md-close"></i></a>
+                                </div>
+                            </div>
+                            <div class="pull-left contacts-list">
+                                <div class="pull-left">
+                                    <label>Manish Gautam <br><small>Sem 4 (Roll-152412)</small></label>
+                                </div>
+                                <div class="pull-right delete-btn">
+                                    <a href=""><i class="md md-close"></i></a>
+                                </div>
+                            </div>
+                            <div class="pull-left contacts-list">
+                                <div class="pull-left">
+                                    <label>Manish Gautam <br><small>Sem 4 (Roll-152412)</small></label>
+                                </div>
+                                <div class="pull-right delete-btn">
+                                    <a href=""><i class="md md-close"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="listview lv-bordered lv-lg">
+                            <div class="lv-body">
+
+                                <hr>
+                                <div class="lv-footer ms-reply">
+                                    <textarea placeholder="Write your message text here..."></textarea>
+
+                                    <button><i class="md md-send"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+

@@ -1,0 +1,584 @@
+<div class="card" id="dept_attendance">
+    <div class="card-body" style="padding: 9px 20px;padding-top: 0px;">
+
+        <div class="row stats_panel">
+
+            <h4>{{ctrl.selectedNode.title}} ATTENDANCE</h4>
+
+            <style>
+                /*.mini-charts-item:before{
+                  background: none;
+              }*/
+          </style>
+
+          <div class="col-md-2">
+            <div class="mini-charts-item stats_panel_item">
+                <div class="clearfix">
+                    <div class="chart stats-bar" data-sparkline-bar></div>
+                    <div class="count" style="cursor: pointer;" ng-click="ctrl.showMainGraph = !ctrl.showMainGraph; ">
+                        <medium style="line-height: 56px;">View Graph</medium>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="stats_panel_item">
+                <div class="clearfix">
+                    <div class="count">
+                        <medium>Compared to last month</medium>
+                        <h2><i class="fa fa-arrow-up"></i> 12%</h2>
+                        <small>(Increase)</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="stats_panel_item">
+                <div class="clearfix">
+                    <div class="count">
+                        <medium>Current Sem Attendance</medium>
+                        <h2>78%</h2>
+                        <small>(April-June)</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="stats_panel_item">
+                <div class="clearfix">
+                    <div class="count">
+                        <medium>Current Month Attendance</medium>
+                        <h2>65%</h2>
+                        <small>(June)</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="stats_panel_item">
+                <div class="clearfix">
+                    <div class="count">
+                        <medium>Last Month Attendance</medium>
+                        <h2> 76%</h2>
+                        <small>(May)</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row" ng-if="ctrl.showMainGraph" style="padding-top:20px">
+
+        <div class="col-md-4">
+            <h5 style="margin-top: 3px;margin-bottom: 3px;">Period : April - October</h5>
+            <small style="font-size: 12px;">Whole college's current sem's monthly attendance</small>
+            <br/>
+            <table class="table condensed_table_4">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Month</th>
+                        <th>Attendance %</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>April</td>
+                        <td>58 %</td>
+
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>May</td>
+                        <td>59 %</td>
+
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>June</td>
+                        <td>68 %</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>July</td>
+                        <td> -</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>August</td>
+                        <td> -</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>September</td>
+                        <td> -</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="col-md-8" style="border-left: 1px solid rgba(0, 150, 136, 0.18);">
+            <canvas id="myChartOverall" style="width:100%;height:200px"></canvas>
+
+            <script>
+                lineChartMonthly("myChartOverall");
+            </script>
+
+            <div class="flc-">
+                <table style="font-size:smaller;color:#545454">
+                    <tbody>
+                        <tr>
+                            <td class="legendColorBox">
+                                <div style="border:1px solid #ccc;padding:1px">
+                                    <div style="width:4px;height:0;border:5px solid rgba(151,187,205,1);overflow:hidden"></div>
+                                </div>
+                            </td>
+                            <td class="legendLabel">Overall</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+
+
+    </div>
+    <div class="row" ng-if="ctrl.showMainGraph"
+    style="height:30px;background-color:rgba(234, 231, 239, 0.69);text-align:center;line-height:31px;position:relative;bottom: -9px;margin-left: -20px;   margin-right: -20px">
+    <a style="cursor:pointer;" ng-click="ctrl.showMainGraph = false;">CLOSE</a>
+</div>
+</div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive detailed_comp_table" tabindex="4">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th style="width:30%">#<small>sem select control somewhere</small></th>
+                        <th  style="width:35%">Batch : 09EC0A</th>
+                        <th  style="width:35%;"><div style="float:left;height:30px;width:1px;display:inline-block;background-color:#80C7C4"></div>Batch : 09EC0B</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Monthly Attendance View</td>
+                        <td colspan="2" style="padding-top:20px;">
+                             <canvas id="monthly_view" style="width:90%;height:170px"></canvas>
+
+                            <script>
+                                batch_compare_monthly_attendance("monthly_view");
+                            </script>
+
+                            <div class="flc-">
+                                <table style="font-size:20px;color:#545454">
+                                    <tbody>
+                                        <tr>
+                                            <td class="legendColorBox">
+                                                <div style="border:1px solid #ccc;padding:1px">
+                                                    <div style="width:4px;height:0;border:5px solid #3F51B5;overflow:hidden"></div>
+                                                </div>
+                                            </td>
+                                            <td class="legendLabel">09EC00A</td>
+                                             <td class="legendColorBox">
+                                                <div style="border:1px solid #ccc;padding:1px">
+                                                    <div style="width:4px;height:0;border:5px solid #8BC34A;overflow:hidden"></div>
+                                                </div>
+                                            </td>
+                                            <td class="legendLabel">09EC00B</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>Current Sem Attendance</td>
+                        <td>78%</td>
+                        <td>89%</td>
+                    </tr>
+                     <tr>
+                        <td>Current Month Attendance</td>
+                        <td>48%</td>
+                        <td>68%</td>
+                    </tr>
+                    <tr>
+                        <td>Current Month Attendance</td>
+                        <td>48%</td>
+                        <td>68%</td>
+                    </tr>
+                    <tr>
+                        <td>Compared to last month</td>
+                        <td><i class="fa fa-arrow-up"></i> 12%</td>
+                        <td><i class="fa fa-arrow-up"></i> 15%</td>
+                    </tr>
+
+                    <tr>
+                        <td>Per subject lactures taken</td>
+                        <td>
+                            <div id="b1_lectures" style="width:100%;height:300px"></div>                            
+                            <script>
+                                subjectsPieChart('b1_lectures');
+                            </script>
+                        </td>
+                        <td>
+                            <div id="b2_lectures" style="width:100%;height:300px"></div>                            
+                            <script>
+                                subjectsPieChart('b2_lectures');
+                            </script>
+                        </td>
+                    </tr>     
+
+                    <tr>
+                        <td>
+                        Subjects wise attendnace
+
+                            <div class="table-responsive subjects_list_block">
+                                    <table class="table">
+                                        <tbody>
+                                            <tr>
+                                                <td>M3</td>
+                                                <td>Maths - 3</td>
+                                            </tr>
+                                            <tr>
+                                                <td>AWP</td>
+                                                <td>Antennas and Wave propogation theory</td>
+                                            </tr>
+                                            <tr>
+                                                <td>ED</td>
+                                                <td>Engineering Drawing</td>
+                                            </tr>
+                                            <tr>
+                                                <td>DS</td>
+                                                <td>Data Structures</td>
+                                            </tr>
+                                            <tr>
+                                                <td>DLD</td>
+                                                <td>Digital Logic Design</td>
+                                            </tr>
+                                            <tr>
+                                                <td>AI</td>
+                                                <td>Artifical Intelligence</td>
+                                            </tr>                    
+                                        </tbody>                
+                                    </table>
+                            </div>
+                        </td>
+                        <td colspan="2" style="padding-top:20px">
+                            <canvas id="b1_subject_attendance" style="width:90%;height:170px"></canvas>
+
+                            <script>
+                                subject_wise_attendance_lectures("b1_subject_attendance");
+                            </script>
+
+                            <div class="flc-">
+                                <table style="font-size:20px;color:#545454">
+                                    <tbody>
+                                        <tr>
+                                            <td class="legendColorBox">
+                                                <div style="border:1px solid #ccc;padding:1px">
+                                                    <div style="width:4px;height:0;border:5px solid #3F51B5;overflow:hidden"></div>
+                                                </div>
+                                            </td>
+                                            <td class="legendLabel">09EC00A</td>
+                                             <td class="legendColorBox">
+                                                <div style="border:1px solid #ccc;padding:1px">
+                                                    <div style="width:4px;height:0;border:5px solid #8BC34A;overflow:hidden"></div>
+                                                </div>
+                                            </td>
+                                            <td class="legendLabel">09EC00B</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </td>
+                        
+                    </tr>     
+
+                    <tr>
+                        <td>Student's Attendance in period bases</td>
+                        <td colspan="2" style="padding-top:20px">
+                            <canvas id="b1_periods2" style="width:80%;height:170px"></canvas>
+                            <script>
+                                //linechart_periods('b1_periods');
+                                linechart_periods('b1_periods2');
+                            </script>
+
+
+                            <div class="flc-">
+                                <table style="font-size:20px;color:#545454">
+                                    <tbody>
+                                        <tr>
+                                            <td class="legendColorBox">
+                                                <div style="border:1px solid #ccc;padding:1px">
+                                                    <div style="width:4px;height:0;border:5px solid #3F51B5;overflow:hidden"></div>
+                                                </div>
+                                            </td>
+                                            <td class="legendLabel">09EC00A</td>
+                                             <td class="legendColorBox">
+                                                <div style="border:1px solid #ccc;padding:1px">
+                                                    <div style="width:4px;height:0;border:5px solid #8BC34A;overflow:hidden"></div>
+                                                </div>
+                                            </td>
+                                            <td class="legendLabel">09EC00B</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+
+                        </td>
+                       
+                    </tr>     
+
+
+                    <tr>
+                        <td>Girls and Boys</td>
+                        <td>
+                            <div class="row">
+                                      <div class="col-md-12">
+
+                                        <div class="row" style="width: 128px; display: inline-block;">
+                                            <div class="col-md-6">
+                                                <div style="text-align:center;display:inline-block">
+                                                    <span style="font-size:35px;color:#3F51B5;">
+                                                        <i class="fa fa-female fa-4"></i>
+                                                    </span><br>
+                                                    Female
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6" style="line-height: 63px;font-size: 29px;">
+                                                95%
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="width: 96px;display: inline-block;margin-left: 30px;
+                                        ">
+                                            <div class="col-md-6">
+                                                <div style="text-align:center;display:inline-block">
+                                                    <span style="font-size:35px;margin-right: 0px;color:#3F51B5;">
+                                                        <i class="fa fa-male fa-4"></i>
+                                                    </span><br>
+                                                    Male
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6" style="line-height: 63px;font-size: 29px;">
+                                                65%
+                                            </div>
+                                        </div>
+                                        
+
+                                         </div>
+                                        
+
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row" style="border-left:1px solid #C7ECD8;">
+                                      <div class="col-md-12">
+
+                                        <div class="row" style="width: 128px; display: inline-block;">
+                                            <div class="col-md-6">
+                                                <div style="text-align:center;display:inline-block">
+                                                    <span style="font-size:35px;color:#8BC34A;">
+                                                        <i class="fa fa-female fa-4"></i>
+                                                    </span><br>
+                                                    Female
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6" style="line-height: 63px;font-size: 29px;">
+                                                58%
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="width: 96px;display: inline-block;margin-left: 30px;
+                                        ">
+                                            <div class="col-md-6">
+                                                <div style="text-align:center;display:inline-block">
+                                                    <span style="font-size:35px;margin-right: 0px;color:#8BC34A;">
+                                                        <i class="fa fa-male fa-4"></i>
+                                                    </span><br>
+                                                    Male
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6" style="line-height: 63px;font-size: 29px;">
+                                                78%
+                                            </div>
+                                        </div>
+                                        
+
+                                         </div>
+                                        
+
+                            </div>
+                        </td>
+                        
+                    </tr>     
+
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+<br/><br/>
+
+<div class="card period_view" id="periods">
+    <div class="card-body" style="padding: 9px 20px;padding-top: 0px;">
+
+        <div class="row stats_panel">
+            <h4>PERIOD WISE ATTENDANCE</h4>
+
+            <div class="col-x8 percent-chart">
+
+                <img src="img/icons/check.png" class="pressed_img" ng-show="ctrl.periods[1].isActive == true"/>
+
+                <div class="easy-pie years_block_chart" data-percent="45"
+                data-easypie-chart ng-click="ctrl.checkUncheckPeriodBox(1)">
+                <div class="percent">45</div>
+                <div class="pie-title">1st Period</div>
+            </div>
+
+        </div>
+
+        <div class="col-x8 percent-chart" >
+
+            <img src="img/icons/check.png" class="pressed_img" ng-show="ctrl.periods[2].isActive == true"/>
+
+            <div class="easy-pie years_block_chart" data-percent="45"
+            data-easypie-chart ng-click="ctrl.checkUncheckPeriodBox(2)">
+            <div class="percent">45</div>
+            <div class="pie-title">2nd Period</div>
+        </div>
+
+        <div class="pressed" ng-if="ctrl.periods[1].isActive == true"></div>
+    </div>
+
+    <div class="col-x8 percent-chart">
+     <div class="easy-pie years_block_chart" data-percent="45"
+     data-easypie-chart ng-click="ctrl.checkUncheckPeriodBox(3)">
+
+     <img src="img/icons/check.png" class="pressed_img" ng-show="ctrl.periods[3].isActive == true"/>
+
+     <div class="percent">45</div>
+     <div class="pie-title">3rd Period</div>
+ </div>
+</div>
+
+<div class="col-x8 percent-chart">
+ <div class="easy-pie years_block_chart" data-percent="45"
+ data-easypie-chart ng-click="ctrl.checkUncheckPeriodBox(4)">
+
+ <img src="img/icons/check.png" class="pressed_img" ng-show="ctrl.periods[4].isActive == true"/>
+
+ <div class="percent">45</div>
+ <div class="pie-title">4rth Period</div>
+</div>
+</div>
+
+<div class="col-x8 percent-chart">
+ <div class="easy-pie years_block_chart" data-percent="45"
+ data-easypie-chart ng-click="ctrl.checkUncheckPeriodBox(5)">
+
+ <img src="img/icons/check.png" class="pressed_img" ng-show="ctrl.periods[5].isActive == true"/>
+
+ <div class="percent">45</div>
+ <div class="pie-title">5th Period</div>
+</div>
+</div>
+
+<div class="col-x8 percent-chart">
+ <div class="easy-pie years_block_chart" data-percent="45"
+ data-easypie-chart ng-click="ctrl.checkUncheckPeriodBox(6)">
+
+ <img src="img/icons/check.png" class="pressed_img" ng-show="ctrl.periods[6].isActive == true"/>
+
+ <div class="percent">45</div>
+ <div class="pie-title">6th Period</div>
+</div>
+</div>
+
+<div class="col-x8 percent-chart">
+ <div class="easy-pie years_block_chart" data-percent="45"
+ data-easypie-chart ng-click="ctrl.checkUncheckPeriodBox(7)">
+
+ <img src="img/icons/check.png" class="pressed_img" ng-show="ctrl.periods[7].isActive == true"/>
+
+ <div class="percent">45</div>
+ <div class="pie-title">7nth Period</div>
+</div>
+</div>
+<div class="col-x8 percent-chart">
+ <div class="easy-pie years_block_chart" data-percent="45"
+ data-easypie-chart ng-click="ctrl.checkUncheckPeriodBox(8)">
+
+ <img src="img/icons/check.png" class="pressed_img" ng-show="ctrl.periods[8].isActive == true"/>
+
+ <div class="percent">45</div>
+ <div class="pie-title">8th Period</div>
+</div>
+</div>
+</div>
+
+
+<div class="row" ng-if="ctrl.hasAnyActivePeriods();" style="padding-top:20px">
+    
+    <div class="col-md-12" style="border-left: 1px solid rgba(0, 150, 136, 0.18);">
+
+        <div class="dropdown pull-right btn-group" data-animation="flipInX,flipOutX">
+
+         <button type="button" class="btn bgm-teal" style="width:auto" disabled="disabled">Select Duration : </button>
+         <button type="button" class="btn bgm-teal" data-toggle="dropdown" style="width:150px">Last 1 Year <i class="caret"></i></button>
+         <ul class="dropdown-menu">
+            <li><a href="">Last Month</a></li>
+            <li><a href="">Last 6 Months</a></li>
+            <li><a href="">Last 1 Year</a></li>
+            <li class="divider"></li>
+            <li><a href="">All time</a></li>
+        </ul>
+    </div>
+
+    <canvas id="myChartOverall" style="width:100%;height:200px"></canvas>
+
+    <script>
+        attenanceDeptWiseComp("myChartOverall");
+    </script>
+
+    <div class="flc-">
+        <table style="font-size:smaller;color:#545454">
+            <tbody>
+                <tr>
+                    <td class="legendColorBox">
+                        <div style="border:1px solid #ccc;padding:1px">
+                            <div style="width:4px;height:0;border:5px solid rgba(151,187,205,1);overflow:hidden"></div>
+                        </div>
+                    </td>
+                    <td class="legendLabel">Overall</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
+</div>
+
+
+</div>
+</div>
