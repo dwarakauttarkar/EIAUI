@@ -25,7 +25,21 @@ materialAdmin
 
                   return no.toFixed(2);
         };
-
+				this.createFaculty = function(){
+		
+					console.log('Came here');
+					//$state.go('admin-dashboard');
+					
+					//$state.go('chief-dashboard');
+					if(typeof  this.ID != 'undefined' && this.designation != 'undefined'){
+						swal("Good job!", "The Faculty is created !!!", "success");
+					}else{
+						swal("Good job!", "Please fill all the details", "failure");
+					}
+					
+			
+				}
+				
 
         ctrlObject.dummyData = {
 

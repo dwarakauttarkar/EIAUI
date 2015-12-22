@@ -1,0 +1,48 @@
+{
+    "list": [
+        {
+            "id": 1,
+            "todo": "Complete the assignments"
+        },
+        {
+            "id": 2,
+            "todo": "Apply for GMAT"
+        },
+        {
+            "id": 3,
+            "todo": "Submit the record by friday"
+        },
+        {
+            "id": 4,
+            "todo": "Submit Maths-3 assignments by tommorow"
+        },
+        {
+            "id": 5,
+            "todo": "Checkout the course books at the library and don't forget to return the old books"
+        },
+        {
+            "id": 6,
+            "todo": "Get the stuff for robotics workshop for this friday"
+        },
+        {
+            "id": 7,
+            "todo": "Submit the record by friday"
+        },
+        {
+            "id": 8,
+            "todo": "Checkout the course books at the library and don't forget to return the old books"
+        },
+        {
+            "id": 9,
+            "todo": "Proin luctus dictum nisl id auctor. Nullam lobortis condimentum arcu sit amet gravida"
+        },
+        {
+            "id": 10,
+            "todo": "Proin luctus dictum nisl id auctor. Nullam lobortis condimentum arcu sit amet gravida"
+        },
+        {
+            "id": 11,
+            "todo": "Proin luctus dictum nisl id auctor. Nullam lobortis condimentum arcu sit amet gravida"
+        }
+    ]
+}
